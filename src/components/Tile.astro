@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  icon: 'chart' | 'camera' | 'scissors' | 'chat' | 'report' | 'video';
+  tone?: 'subtle' | 'brand' | 'accent' | 'wash';
+  span?: 2 | 3 | 4;
+}
+const { title, icon, tone = 'subtle', span = 2 } = Astro.props;
+const classes = ['mj-tile', span !== 2 && `mj-tile--w${span}`, tone !== 'subtle' && `mj-tile--${tone}`].filter(Boolean);
+---
+
+<article class:list={classes}>
+  <div class="mj-tile__icon"><Icon name={icon} /></div>
+  <div class="mj-tile__body">
+    <h3 class="mj-tile__title">{title}</h3>
+    <p class="mj-tile__text"><slot /></p>
+  </div>
+</article>

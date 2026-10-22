@@ -29,7 +29,9 @@ Lege diese Dateien vor Projektstart ins Repo (Max liefert sie):
 | `/design-system/` | Export des Design Systems Version 2: `tokens.json`, `bundle.css`, `README.md`, Komponenten-READMEs und -Previews, Logos |
 | `/reference/startseite-alt.html` | Gespeichertes HTML der aktuellen Startseite (alle Texte) samt `_files`-Ordner mit Bildern |
 | `/reference/startseite-neu.html` | Fertige Vorschau der neuen Startseite (Layout-Referenz) |
-| `/content/` | Texte der Unterseiten (Über uns, Referenzen, Kontakt), Bilder, Videos, Kundenlogos |
+| `/content/` | Inhalte aller Seiten, ausgelesen von der Live-Seite (`content/README.md`), plus Medienliste und Download-Skript (`content/media/`) |
+
+**Inhalte und Aufbau der alten Seite werden übernommen.** Texte stehen wörtlich in `/content/*.md`, ebenso die Reihenfolge der Sektionen je Seite. Nicht umformulieren, nicht kürzen, nichts ergänzen. Abweichungen (Korrekturen, Überschriften-Hierarchie) sind dort ausdrücklich vermerkt. Wo `startseite-neu.html` Texte gekürzt hat, gilt `/content/`.
 
 Das Design System ist verbindlich. Bei Widerspruch zwischen diesem Briefing und `design-system/README.md` zählt das README für Optik, dieses Briefing für Technik und Recht.
 
@@ -37,7 +39,8 @@ Das Design System ist verbindlich. Bei Widerspruch zwischen diesem Briefing und 
 
 - Marken-Farben Lila (`#ac55f9` Fläche, `#9a3fe8` für Buttons mit weißem Text, `#6b36c2` für Text) und Pfirsich (`#ffc68b`, Text darauf immer `#14101c`). Neutrale Grautöne mit leichtem Violettstich.
 - Semantische Tokens mit Hell- und Dunkelwert (`bg`, `fg`, `brand`, `accent`, …). Das dunkle Thema ist ein vollwertiges zweites Thema.
-- Schriften: Bricolage Grotesque (Überschriften), Inter (Fließtext). **Selbst hosten**, nicht von Google laden (siehe Abschnitt 6).
+- Schriften: Bricolage Grotesque (Überschriften), Inter (Fließtext). **Selbst hosten**, nicht von Google laden (siehe Abschnitt 6). Das Design-System-README, alle Previews und `startseite-neu.html` laden Google Fonts bzw. nennen Cloudinary: das gilt nur für die Vorschauen und wird **nicht** übernommen.
+- `bundle.css` liegt unter `design-system/components/` und erwartet `tokens.css`. Diese Datei gibt es nicht: In Phase 1 aus `tokens.json` erzeugen.
 - Große Typografie (`display-xl`), Bento-Raster, Marquee, Prozess-Schritte, große Radien, Signatur-Radius oben links, weiche Verläufe.
 - Tokens werden 1:1 als CSS-Variablen übernommen. Keine Hex-Werte im Komponenten-CSS.
 
@@ -65,7 +68,9 @@ Das Design System ist verbindlich. Bei Widerspruch zwischen diesem Briefing und 
 | `/impressum`, `/datenschutz` | Rechtstexte (Inhalte von Jenny bzw. Rechtsgenerator, nicht selbst formulieren) |
 | `/404` | Eigene Fehlerseite mit Weiterleitungs-Links |
 
-**Empfohlene Erweiterung für SEO (nach Freigabe):** je Leistung eine eigene Seite unter `/leistungen/<slug>` (Social-Media-Strategie, Content-Erstellung, Schnitt und Upload, Community Management, Reporting) und eine FAQ-Seite `/faq`. Die Startseite verlinkt jeweils darauf. Jede Seite hat einen eigenen Suchbegriff (Abschnitt 4).
+**Umfang ist fest:** genau diese Seiten. Keine Leistungsseiten, keine FAQ-Seite, kein Blog. Die Leistungen bleiben als Sektion auf der Startseite (Anker `#leistungen`). Alle Slugs sind identisch mit der alten Seite.
+
+**Navigation:** Über uns, Referenzen, Kontakt (als Button). „Leistungen“ aus `startseite-neu.html` nur als Anker `/#leistungen`.
 
 ---
 
@@ -138,7 +143,7 @@ Jede Seite hat über ein zentrales `<SEO>`-Component:
 ### 4.3 Inhalt und interne Verlinkung
 
 - Keyword-Recherche vor dem Schreiben der Meta-Daten: Liste je Seite (Haupt-, Neben-Suchbegriff, Suchintention) als `docs/keywords.md` vorschlagen. Max bestätigt. Schätze keine Suchvolumen, ohne Quelle zu nennen.
-- Local-SEO-Signale: Ort/Region von Jenny und ihrer Zielregion im Text, Title und Schema (sobald Max sie nennt). Name, Adresse, Telefon überall identisch. Google-Unternehmensprofil und Bing Places liegen außerhalb des Codes, stehen aber auf der Aufgabenliste für Max.
+- Local-SEO-Signale: Standort ist **Geretsried** (Händelstraße 19, 82538 Geretsried), Einzugsgebiet `TODO:` (Jenny). Der alte Title von Über uns („Social-Media-Agentur Geretsried | Marketing mit Jenny“) bleibt erhalten. Name, Adresse, Telefon überall identisch. Google-Unternehmensprofil und Bing Places liegen außerhalb des Codes, stehen aber auf der Aufgabenliste für Max.
 - Interne Links mit sprechendem Linktext (nicht „hier klicken“). Jede Seite ist von mindestens zwei anderen verlinkt. Breadcrumbs auf Unterseiten.
 - Bilder: sprechender Dateiname, aussagekräftiger Alt-Text (Dekoratives `alt=""`), feste Maße, `loading="lazy"` unterhalb des Sichtbereichs, Hero-Bild mit `fetchpriority="high"` und Preload.
 
@@ -169,7 +174,7 @@ Ziel: Die Seite wird von Google AI Overviews, ChatGPT, Perplexity, Claude und Co
 
 - **Antwort zuerst:** Jede Seite und jede `h2`-Sektion beginnt mit 1–3 Sätzen, die die Frage direkt beantworten (ca. 40–60 Wörter), danach Details.
 - Überschriften als Fragen, wo Menschen so suchen („Was kostet Social-Media-Betreuung für lokale Unternehmen?“). Sonst klare Aussagen.
-- FAQ-Block auf Startseite und jeder Leistungsseite (je 5–10 echte Fragen aus Erstgesprächen, Antwort 40–80 Wörter, in Klartext). Fragen liefert Jenny, du schlägst Entwürfe vor und markierst sie als zu prüfen.
+- FAQ: **nicht im Umfang**, da nur bestehende Inhalte übernommen werden. Später als Startseiten-Sektion möglich, wenn Jenny Fragen liefert.
 - Listen für Schritte, Tabellen für Vergleiche (z. B. „Was ist inklusive“), kurze Absätze, definierte Fachbegriffe beim ersten Auftreten.
 - Eindeutige Selbstbeschreibung („Wer ist Marketing mit Jenny, was wird gemacht, für wen, wo“) im ersten Sichtbereich und auf `/ueber-uns`. Entitäten konsistent benennen (Firmenname, Personenname, Leistungsnamen immer gleich).
 - E-E-A-T: Autorin sichtbar (Jennifer Pelka mit Foto, Kurzprofil), echte Referenzen mit Namen und Ergebnissen, Datum der letzten Aktualisierung (`dateModified`) auf inhaltlichen Seiten. Zahlen nur mit Quelle oder Beleg.
@@ -247,10 +252,11 @@ Ziel WCAG 2.2 AA: Kontraste (im Design System geprüft), Tastaturbedienung, Foku
 - Foto von Jennifer Pelka (Hero), Teamfotos, Referenz-Mockups, Reels als Video-Dateien mit Poster und Untertiteln
 - Kundenlogos mit Nutzungserlaubnis, Zitate, belegbare Zahlen
 - Logo als SVG sowie helle Variante für dunklen Grund
-- Texte für Über uns, Referenzen, Kontakt, FAQ
-- Ort/Einzugsgebiet, Telefon, Impressums-Angaben
+- Offene Punkte aus `content/README.md` (Alt-Texte, h1 Referenzen, Wir-Form auf Kontakt)
+- Einzugsgebiet (Ort, Telefon und Impressum liegen in `/content/` vor)
+- Neu generierte Datenschutzerklärung (alte nennt Strato statt Webflow und ist unvollständig)
 - Ziel des Kontaktformulars (E-Mail-Postfach, Kalender-Buchung), Hosting-Entscheidung, Domain-Zugang
-- Liste der alten URLs für Weiterleitungen
+- Liste der alten URLs aus der Search Console (alle Haupt-Slugs bleiben gleich; prüfen, ob es weitere indexierte URLs gibt)
 - Entscheidung zu Statistik (keine, Umami, Plausible, Matomo) und zu KI-Crawlern
 
 ---
@@ -283,7 +289,7 @@ Ziel WCAG 2.2 AA: Kontraste (im Design System geprüft), Tastaturbedienung, Foku
 - [ ] Einmaliger Title und Description je Seite, Canonical, OG und Twitter Card, ein `h1`
 - [ ] `sitemap.xml`, `robots.txt`, `llms.txt`, 404 mit Status 404, 301-Weiterleitungen getestet
 - [ ] JSON-LD validiert (Schema.org Validator und Rich-Results-Test), nur sichtbare Inhalte
-- [ ] Antwort-zuerst-Absätze und FAQ auf Startseite und Leistungsseiten
+- [ ] Alle Texte aus `/content/` wörtlich und in der dortigen Reihenfolge übernommen
 - [ ] Bilder mit Alt-Text, Maßen und modernen Formaten
 
 **Datenschutz**

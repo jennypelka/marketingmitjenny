@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/marketingmitjenny-logo.png';
+import { site } from '../lib/site';
+---
+
+<div data-theme="dark" style="background: var(--bg)">
+  <footer class="mj-footer">
+    <div class="mj-wrap">
+      <div class="mj-footer__top">
+        <div class="mj-footer__brand">
+          <!-- TODO: helle Logo-Variante für dunklen Grund (siehe BRIEFING §7) -->
+          <Image src={logo} alt="marketingmitjenny" width={226} height={160} loading="lazy" />
+          <p>{site.tagline}.</p>
+          <div class="social">
+            <a href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram (öffnet in neuem Tab)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle></svg>
+            </a>
+            <a href={site.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn (öffnet in neuem Tab)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="mj-footer__cols">
+          <nav class="mj-footer__col" aria-label="Seiten">
+            <h2 class="mj-footer__heading">Seiten</h2>
+            <a href="/ueber-uns">Über uns</a>
+            <a href="/referenzen">Referenzen</a>
+            <a href="/kontakt">Kontakt</a>
+          </nav>
+        </div>
+      </div>
+      <div class="mj-footer__bottom">
+        <span>© {new Date().getFullYear()} {site.name}</span>
+        <span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span>
+      </div>
+    </div>
+  </footer>
+</div>

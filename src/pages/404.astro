@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout title="Seite nicht gefunden | Marketing mit Jenny" description="Diese Seite gibt es nicht (mehr). Hier geht es zurück zur Startseite, zu Referenzen oder zum Kontakt." noindex>
+  <Section eyebrow="Fehler 404">
+    <div class="mj-stack">
+      <h1 class="mj-h1">Seite nicht gefunden</h1>
+      <p class="mj-lead">Diese Seite gibt es nicht (mehr). Vielleicht hilft einer dieser Links weiter.</p>
+      <div class="mj-row">
+        <a class="mj-btn" href="/">Zur Startseite</a>
+        <a class="mj-btn mj-btn--outline" href="/referenzen">Referenzen</a>
+        <a class="mj-btn mj-btn--outline" href="/kontakt">Kontakt</a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

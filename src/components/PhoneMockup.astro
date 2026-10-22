@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  label: string;
+  poster?: ImageMetadata;
+  video?: string;
+  alt?: string;
+  position?: 'left' | 'center' | 'right';
+}
+const { label, poster, video, alt = '', position = 'center' } = Astro.props;
+---
+
+<div class:list={['mj-phone', `phone--${position}`]} data-anim="scale-in">
+  <div class="mj-phone__screen">
+    {video ? (
+      <video muted playsinline loop preload="none" poster={poster?.src} aria-label={label} data-lazy-video>
+        <source src={video} type="video/mp4" />
+      </video>
+    ) : poster ? (
+      <Image src={poster} alt={alt} width={560} height={1180} loading="lazy" />
+    ) : (
+      <p class="phone__todo">{label}<small>TODO: Video und Poster folgen</small></p>
+    )}
+  </div>
+</div>

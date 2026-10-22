@@ -1,0 +1,63 @@
+---
+import { createHash } from 'node:crypto';
+import SEO from '../components/SEO.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { themeScript } from '../lib/theme-script';
+import '../styles/tokens.css';
+import '../../design-system/components/bundle.css';
+import '../styles/site.css';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+const { title, description, noindex } = Astro.props;
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const themeHash = createHash('sha256').update(themeScript).digest('base64');
+// GitHub Pages cannot send headers; a meta CSP covers what the spec allows (no frame-ancestors).
+const csp = [
+  "default-src 'self'",
+  `script-src 'self' 'sha256-${themeHash}'`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "media-src 'self'",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join('; ');
+---
+
+<!doctype html>
+<html lang="de-DE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content={csp} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0a17" media="(prefers-color-scheme: dark)" />
+    <script is:inline set:html={themeScript} />
+    <link rel="preload" href="/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <SEO title={title} description={description} path={path} noindex={noindex} />
+  </head>
+  <body class="mj site">
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <Nav path={path} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import '../scripts/ui';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+---
+import Badge from './Badge.astro';
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  text?: string;
+  badge?: string;
+  buttonLabel?: string;
+  href?: string;
+}
+const { title, text, badge, buttonLabel = 'Kontakt aufnehmen', href = '/kontakt' } = Astro.props;
+---
+
+<section class="mj-section" aria-labelledby="cta-title">
+  <div class="mj-wrap">
+    <div class="mj-cta" data-anim="parallax-soft">
+      {badge && <Badge variant="accent">{badge}</Badge>}
+      <h2 class="mj-cta__title" id="cta-title">{title}</h2>
+      {text && <p class="mj-cta__text">{text}</p>}
+      <Button href={href} variant="accent" size="lg" arrow>{buttonLabel}</Button>
+    </div>
+  </div>
+</section>
