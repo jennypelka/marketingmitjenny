@@ -30,6 +30,29 @@ document.querySelectorAll<HTMLElement>('.mj-marquee--manual').forEach((el) => {
   el.addEventListener('focusin', () => (focus = true));
   el.addEventListener('focusout', () => (focus = false));
 
+  // Mouse drag (touch and trackpad already scroll natively)
+  let dragging = false;
+  let dragStartX = 0;
+  let dragStartLeft = 0;
+  el.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    dragging = true;
+    dragStartX = e.clientX;
+    dragStartLeft = el.scrollLeft;
+    el.classList.add('is-dragging');
+    el.setPointerCapture(e.pointerId);
+  });
+  el.addEventListener('pointermove', (e) => {
+    if (dragging) el.scrollLeft = dragStartLeft - (e.clientX - dragStartX);
+  });
+  const stopDrag = () => {
+    dragging = false;
+    el.classList.remove('is-dragging');
+    touch();
+  };
+  el.addEventListener('pointerup', stopDrag);
+  el.addEventListener('pointercancel', stopDrag);
+
   const nav = el.nextElementSibling;
   const step = (dir: number) => {
     touch();

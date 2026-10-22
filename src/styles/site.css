@@ -96,7 +96,8 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .phone--left { --fan-x: 40px; --fan-r: -7deg; }
 .phone--right { --fan-x: -40px; --fan-r: 7deg; }
 .phone__screen { position: absolute; inset: 0.8% 2.6% 0.8% 3%; overflow: hidden; border-radius: 10% / 4.9%; background: var(--grad-warm); display: grid; place-items: center; }
-.phone__screen video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.phone__screen video { width: 100%; height: 100%; object-fit: contain; display: block; }
+.phone__screen--video { background: var(--ink-900); }
 .phone__frame { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .phone__todo { display: grid; gap: var(--space-2); margin: 0; padding: var(--space-5); text-align: center; color: var(--ink-900); font: 700 1rem/1.35 var(--font-sans); }
 .phone__todo small { font: 500 0.8125rem/1.4 var(--font-sans); }
@@ -117,8 +118,26 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
   .result { flex: 0 0 min(80%, 22rem); scroll-snap-align: start; }
 }
 
-/* Reels row: one phone per reel */
-.reels { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); justify-items: center; gap: var(--space-7) var(--space-5); padding-block: var(--space-5); margin: 0; }
+/* Reels carousel (src/scripts/reels.ts). Without JS: a plain swipeable row with all reels. */
+.reels { display: flex; gap: var(--space-5); overflow-x: auto; scroll-snap-type: x mandatory; padding: var(--space-5) var(--space-2); margin: 0; }
+.reel-slide { position: relative; flex: none; scroll-snap-align: center; }
+.reels-nav { display: none; }
+.reels-wrap--js .reels-nav { display: flex; align-items: center; justify-content: center; gap: var(--space-3); margin-top: var(--space-4); }
+.reels-wrap--js .reels-nav .icon-btn { border: 1px solid var(--border-control); }
+.reels-dots { display: flex; }
+.reels-dot { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.reels-dot span { width: 0.625rem; height: 0.625rem; border-radius: var(--radius-circle); background: var(--border-control); transition: transform var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out); }
+.reels-dot[aria-current='true'] span { background: var(--brand-action); transform: scale(1.4); }
+
+.reels--js { --step: calc(var(--phone-width) + var(--space-6)); position: relative; display: block; overflow: hidden; scroll-snap-type: none; padding: var(--space-5) 0; height: calc(var(--phone-width) * 1149 / 560 + var(--space-7)); -webkit-mask-image: linear-gradient(90deg, transparent, black 14%, black 86%, transparent); mask-image: linear-gradient(90deg, transparent, black 14%, black 86%, transparent); touch-action: pan-y; }
+.reels--js .reel-slide { position: absolute; top: var(--space-5); left: 50%; width: var(--phone-width); margin-left: calc(var(--phone-width) / -2); transform: translateX(calc(var(--rel, 0) * var(--step))) scale(var(--s, 1)); opacity: var(--o, 1); transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out); user-select: none; }
+.reels--js .reel-slide[data-pos='active'] { --s: 1; --o: 1; z-index: 2; }
+.reels--js .reel-slide[data-pos='near'] { --s: 0.84; --o: 0.55; z-index: 1; cursor: pointer; }
+.reels--js .reel-slide[data-pos='far'] { --s: 0.7; --o: 0; pointer-events: none; }
+/* washed-out look for the teased neighbours */
+.reels--js .reel-slide[data-pos='near']::after { content: ''; position: absolute; inset: 0; border-radius: 2.5rem; background: color-mix(in srgb, var(--bg-subtle) 55%, transparent); }
+@media (max-width: 767px) { .reels--js { --step: calc(var(--phone-width) * 0.78); } }
+@media (prefers-reduced-motion: reduce) { .reels--js .reel-slide, .reels-dot span { transition: none; } }
 
 /* Benefits: weight tiers keep the order and size of the old word cloud */
 .benefits { display: flex; flex-wrap: wrap; gap: var(--space-3); margin: var(--space-7) 0 0; padding: 0; list-style: none; }
@@ -230,3 +249,8 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 
 /* Tiles: no forced height on small screens, avoids empty space between icon and title */
 @media (max-width: 767px) { .mj-tile { min-height: 0; gap: var(--space-5); padding: var(--space-5); } }
+
+/* Logo strip: mouse drag */
+.mj-marquee--manual { cursor: grab; }
+.mj-marquee--manual.is-dragging { cursor: grabbing; user-select: none; }
+.marquee-logo img { -webkit-user-drag: none; user-select: none; pointer-events: none; }

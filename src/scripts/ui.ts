@@ -33,3 +33,4 @@ document.addEventListener('keydown', (e) => {
 });
 import './anim';
 import './marquee';
+import './reels';

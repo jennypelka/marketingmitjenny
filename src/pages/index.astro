@@ -116,8 +116,28 @@ const clients = [
   </Section>
 
   <Section id="reels" eyebrow="Reels" title="Was wir bereits umgesetzt haben" subtle>
-    <div class="reels" data-anim="stagger">
-      {reels.map((r) => <PhoneMockup label={`Reel ${r.n}`} video={r.video} poster={r.poster} position="center" />)}
+    <div class="reels-wrap" data-reels data-anim="rise">
+      <div class="reels" role="group" aria-roledescription="Karussell" aria-label="Reels unserer Kunden">
+        {reels.map((r, i) => (
+          <div class="reel-slide" data-reel-slide role="group" aria-roledescription="Folie" aria-label={`Reel ${r.n} von ${reels.length}`}>
+            <PhoneMockup label={`Reel ${r.n}`} video={r.video} poster={r.poster} position="center" carousel />
+          </div>
+        ))}
+      </div>
+      <div class="reels-nav">
+        <button class="icon-btn" type="button" data-reels-prev aria-label="Vorheriges Reel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+        </button>
+        <div class="reels-dots">
+          {reels.map((r) => (
+            <button class="reels-dot" type="button" data-reels-dot aria-label={`Reel ${r.n} von ${reels.length} anzeigen`}><span></span></button>
+          ))}
+        </div>
+        <button class="icon-btn" type="button" data-reels-next aria-label="Nächstes Reel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+        </button>
+      </div>
+      <p class="sr-only" aria-live="polite" data-reels-status></p>
     </div>
   </Section>
 
