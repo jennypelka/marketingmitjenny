@@ -16,12 +16,11 @@ const { steps } = Astro.props;
 
 <ol class="mj-process" data-anim="stagger" data-progress-line>
   {steps.map((step, i) => (
-    <li class="mj-pstep">
-      <span class="mj-pstep__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+    <li class="mj-pstep"> <!-- the illustration already shows the step number -->
       {step.image && (
         <Image class="mj-pstep__media" src={step.image} alt={step.alt ?? ''} width={480} height={480} loading="lazy" />
       )}
-      <h3 class="mj-pstep__title">{step.title}</h3>
+      <h3 class="mj-pstep__title"><span class="sr-only">{String(i + 1).padStart(2, '0')} </span>{step.title}</h3>
       <p class="mj-pstep__text">{step.text}</p>
     </li>
   ))}

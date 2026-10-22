@@ -114,10 +114,18 @@ Dinge, die noch fehlen: `docs/offene-todos.md`.
 
 **Videos (Reels) nachträglich einfügen:**
 
+Die Dateien heißen genau `reel-1.mp4` bis `reel-4.mp4` und gehören in den Ordner `content/media/` im Git-Repository. Sie werden beim nächsten Build automatisch im iPhone-Rahmen eingebaut.
+
+*Schritt 1: Videos klein machen (empfohlen, gilt für alle Wege).* Pro Video genügen 10 bis 20 MB. Kostenlos geht das mit HandBrake (handbrake.fr): Datei öffnen, Voreinstellung „Fast 1080p30“, unter Dimensions auf **1080 × 1920** (hochkant) belassen, Reiter Video: Qualität **RF 26**, Reiter Audio: Audio ist egal (die Reels laufen stumm), speichern als MP4. Ein Reel mit 30 bis 45 Sekunden hat dann meist unter 20 MB.
+
+*Weg A: im Browser (bis 25 MB pro Datei).*
 1. GitHub, Reiter **Code**, Ordner `content`, dann `media`.
-2. **Add file**, **Upload files**. Ziehen Sie `reel-1.mp4` bis `reel-4.mp4` hinein (genau diese Namen). Pro Datei erlaubt der Browser höchstens 25 MB, am besten Format hochkant 9:16 mit unter 15 MB.
-3. Unten **Commit changes**. Danach baut GitHub die Seite automatisch neu (siehe Reiter Actions).
-4. Zu große Videos: Mir im Chat schicken oder mit einem Konverter (z. B. HandBrake) verkleinern.
+2. **Add file**, **Upload files**. Dateien hineinziehen.
+3. Unten **Commit changes**, Option **Commit directly to the main branch**. Danach baut GitHub die Seite automatisch neu (Reiter **Actions**).
+
+*Weg B: mit GitHub Desktop (bis 100 MB pro Datei, falls Weg A zu klein ist).* GitHub Desktop (desktop.github.com) installieren und anmelden, das Repository `marketingmitjenny` wählen (**Clone**), die Videos in den Ordner `content/media` kopieren, unten links Beschreibung eintragen, **Commit to main**, dann oben **Push origin**. Das ist ein Programm, kein Skript. Dateien über 100 MB nimmt GitHub nicht an, dafür bitte vorher mit HandBrake verkleinern.
+
+Poster-Bild und Untertitel für die Reels sind noch offen.
 
 **Texte später ändern:** Datei im Browser öffnen (Dateiliste, z. B. `src/pages/ueber-uns.astro`), Stift-Symbol, ändern, **Commit changes**. Nach 2 bis 3 Minuten ist es live. Wo welcher Text steht, steht in der `README.md` unter „Content maintenance“.
 
