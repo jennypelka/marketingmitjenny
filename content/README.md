@@ -41,7 +41,7 @@ Footer: Logo, Impressum, Datenschutz, Kontakt, Instagram, LinkedIn, ©-Zeile.
 - Freigabe der Kundenlogos.
 - Eigenes h1 für Referenzen.
 - Ich-Form auf Kontakt in Wir-Form ändern?
-- Telefax noch aktuell?
+- (erledigt) Telefax entfällt
 - Impressum: DSA-Verordnungsnummer im Generator prüfen.
 - Datenschutzerklärung neu generieren (nach Datenschutz-Inventar).
 - Einzugsgebiet für Local SEO (nur „Geretsried“ und „Region“ belegt).

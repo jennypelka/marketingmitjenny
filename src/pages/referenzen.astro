@@ -1,11 +1,41 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
+import CtaBand from '../components/CtaBand.astro';
+import leirich from '../../content/media/testimonial-fahrschule-leirich.jpg';
+import oberhauser from '../../content/media/testimonial-oberhauser.png';
+
+// Visible text only. No Review/AggregateRating markup (see content/referenzen.md).
+const quotes = [
+  {
+    name: 'Fahrschule Leirich',
+    logo: leirich,
+    alt: 'Logo Fahrschule Leirich',
+    text: 'Frau Pelka hat uns im letzten halben Jahr in sämtlichen Themen rund um das Social-Media-Marketing betreut. Von Post-Erstellung über Vorlagen für sämtliche Situationen. Seitenweise kreative Drehpläne inklusive Schnitt und Ton. Sie war immer erreichbar und höchst professionell. Frau Pelka untersucht den Markt und betreibt ausgiebige Analysen für den Endkunden. Danke für alles! Wir als Fahrschule Leirich können Sie nur wärmstens weiterempfehlen.',
+  },
+  {
+    name: 'Metzgerei Gasthof Oberhauser – Hotel zur Post',
+    logo: oberhauser,
+    alt: 'Logo Metzgerei Gasthof Oberhauser – Hotel zur Post',
+    text: 'Wir sind seit Anfang des Jahres Kunden und sind sehr zufrieden mit der Zusammenarbeit. Vielen Dank, weiter so!',
+  },
+];
 ---
 
-<BaseLayout title="Referenzen | Social-Media-Marketing Erfolgsgeschichten" description="Erfahren Sie, was unsere Kunden über unsere Social-Media-Marketing-Dienstleistungen sagen. Erfolgsgeschichten von Fahrschule Leirich und mehr.">
-  <Section eyebrow="Referenzen">
-    <h1 class="mj-h1">TODO: eigenes h1 (Freigabe Jenny)</h1>
-    <p class="todo">TODO: Inhalt aus content/referenzen.md folgt in Phase 5.</p>
+<BaseLayout page="referenzen">
+  <PageIntro crumb="Referenzen" crumbHref="/referenzen" eyebrow="Referenzen" title="Referenzen: Was unsere Kunden sagen" />
+  <Section id="kundenstimmen" title="Kundenstimmen">
+    <ul class="quotes" data-anim="stagger">
+      {quotes.map((q) => (
+        <li class="quote">
+          <div class="quote__logo"><Image src={q.logo} alt={q.alt} height={80} loading="lazy" /></div>
+          <h3 class="mj-h4">{q.name}</h3>
+          <blockquote><p>„{q.text}“</p></blockquote>
+        </li>
+      ))}
+    </ul>
   </Section>
+  <CtaBand title="Lassen Sie uns Ihren Auftritt gemeinsam aufbauen." text="Erzählen Sie uns von Ihrem Unternehmen. Im Erstgespräch klären wir Ziele, Zielgruppen und ob die Zusammenarbeit passt." badge="Kostenloses Erstgespräch" />
 </BaseLayout>

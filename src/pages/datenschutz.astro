@@ -1,11 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
 ---
 
-<BaseLayout title="Datenschutz | Marketing mit Jenny" description="Datenschutzerklärung von Marketing mit Jenny. Der Text wird neu erzeugt und folgt nach Abschluss des Datenschutz-Inventars.">
-  <Section eyebrow="Rechtliches">
-    <h1 class="mj-h1">Datenschutz</h1>
-    <p class="todo">TODO: Inhalt aus content/datenschutz.md folgt in Phase 7.</p>
+<BaseLayout page="datenschutz">
+  <PageIntro crumb="Datenschutz" crumbHref="/datenschutz" title="Datenschutz" />
+  <Section id="datenschutz-text">
+    <div class="legal">
+      <p class="todo">TODO: Die Datenschutzerklärung wird neu erzeugt (e-recht24, auf Basis von docs/datenschutz-inventar.md) und hier eingefügt. Der alte Text wird bewusst nicht übernommen.</p>
+      <h2>Verantwortliche Stelle</h2>
+      <p>Jennifer Pelka<br />Händelstraße 19<br />82538 Geretsried<br />Deutschland</p>
+      <p>Telefon: +49 155 63469509<br />E-Mail: <a href="mailto:info@marketingmitjenny.de">info@marketingmitjenny.de</a></p>
+    </div>
   </Section>
 </BaseLayout>

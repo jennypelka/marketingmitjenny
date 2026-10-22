@@ -1,11 +1,133 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import BentoGrid from '../components/BentoGrid.astro';
+import Tile from '../components/Tile.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import PhoneMockup from '../components/PhoneMockup.astro';
+import Marquee from '../components/Marquee.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { leistungen } from '../lib/leistungen';
+
+// TODO: hero-jennifer-pelka.jpg is not delivered yet, ueber-uns-1.jpg is the stand-in (Max, Phase 4)
+import hero from '../../content/media/ueber-uns-1.jpg';
+import z1 from '../../content/media/zusammenarbeit-1.png';
+import z2 from '../../content/media/zusammenarbeit-2.png';
+import z3 from '../../content/media/zusammenarbeit-3.png';
+import z4 from '../../content/media/zusammenarbeit-4.png';
+import m1 from '../../content/media/referenz-mockup-1.png';
+import m2 from '../../content/media/referenz-mockup-2.png';
+import m3 from '../../content/media/referenz-mockup-3.png';
+import m4 from '../../content/media/referenz-mockup-4.png';
+import wornet from '../assets/clients/wornet-ag.png';
+import fercak from '../assets/clients/roberto-fercak.png';
+import oberhauser from '../assets/clients/oberhauser.png';
+import frinopharm from '../assets/clients/frinopharm.png';
+import leirich from '../assets/clients/fahrschule-leirich.png';
+
+// Reels are picked up automatically once content/media/reel-1.mp4 ... reel-4.mp4 exist.
+const reelFiles = import.meta.glob('../../content/media/reel-*.mp4', { query: '?url', import: 'default', eager: true }) as Record<string, string>;
+const reels = [1, 2, 3, 4].map((n) => ({
+  n,
+  video: reelFiles[`../../content/media/reel-${n}.mp4`],
+}));
+
+const steps = [
+  { title: 'Kennenlernen', image: z1, text: 'Im kostenfreien Erstgespräch klären wir Bedarf, Ziele, Zielgruppen und den Status Ihres Social-Media Auftritts. Auf dieser Basis entscheiden beide Seiten, ob eine Zusammenarbeit sinnvoll ist. Im anschließenden Onboarding richten wir das technische Setup ein, klären Corporate-Design Richtlinien, Erwartungen und Wünsche und legen die bevorzugten Kommunikationswege fest.' },
+  { title: 'Planung', image: z2, text: 'Auf Basis des Onboardings entwickeln wir eine individuelle Social-Media-Strategie als kompaktes Dokument mit Zielen, Kanälen, Formaten, Tonalität, Postingfrequenz und Inhalten der Posts. Direkt danach entsteht der Drehplan mit konkreten Szenen und Hooks, kombiniert aus unseren Vorschlägen und, falls gewünscht, Ihren Ideen. Der Plan bietet einen klaren Überblick und dient als Fahrplan für die Content-Erstellung.' },
+  { title: 'Content Produktion', image: z3, text: 'Etwa alle zwei Monate produzieren wir bei Ihnen vor Ort Content mit Fokus auf Kurzvideos und bringen das notwendige Equipment mit. Wir führen den Dreh effizient durch, sichern hochwertiges Material und bereiten alles für Schnitt und Bearbeitung vor. Im Anschluss entstehen CI-konforme Templates, Untertitel, Thumbnails und die finalen Dateien, optimiert für die jeweilige Social-Media-Plattform.' },
+  { title: 'Social-Media-Betreuung', image: z4, text: 'Die Freigabe der Inhalte erfolgt wöchentlich per kurzem Meeting oder per Chat. Nach der Freigabe posten wir plattformgerecht und betreuen die Community aktiv. Auf Basis des monatlichen Reportings mit den wichtigsten Kennzahlen erfolgt die Optimierung der Inhalte. Sobald der produzierte Content aufgebraucht ist, startet der nächste Zyklus mit aktualisiertem Drehplan und anschließendem Drehtag.' },
+];
+
+// TODO: Alt-Texte pro Mockup und Kunde von Jenny; the drafts below only describe what is visible.
+const results = [
+  { image: m1, alt: 'Mockup: Reel-Insights mit 316 Profilaktivitäten und neuen Followern, „Durch ein einziges Reel! Ohne Ads“' },
+  { image: m2, alt: 'Mockup: Beitrags-Insights mit 188 Tsd. Aufrufen, „Ohne Ads“' },
+  { image: m3, alt: 'Mockup: Beitrags-Insights mit 210 Tsd. Aufrufen, „Ohne Ads“' },
+  { image: m4, alt: 'Mockup: Beitrags-Insights mit 185 Tsd. Aufrufen, „Ohne Ads“' },
+];
+
+// Order and weights from the old word cloud (content/startseite.md, section 6)
+const benefits = [
+  ['Mehr Kundenanfragen', 1],
+  ['Höhere Sichtbarkeit', 2],
+  ['Stärkeres Image', 3],
+  ['Mehr Vertrauen', 4],
+  ['Messbare Ergebnisse', 4],
+  ['Engere Kundenbindung', 4],
+  ['Vorsprung vor Wettbewerbern', 5],
+  ['Einfacheres Recruiting', 5],
+  ['Potenzial für virale Posts', 6],
+  ['Zukunftssicherheit', 6],
+] as const;
+
+// TODO: Nutzungsfreigabe der Kundenlogos durch die Kunden bestätigen (Jenny)
+const clients = [
+  { label: 'WorNet AG', image: wornet },
+  { label: 'Roberto Fercak', image: fercak },
+  { label: 'Oberhauser', image: oberhauser },
+  { label: 'Frinopharm', image: frinopharm },
+  { label: 'Fahrschule Leirich', image: leirich },
+];
 ---
 
-<BaseLayout title="Social-Media-Marketing für lokale Unternehmen | Jenny" description="Strategisches Social-Media-Marketing für lokale Unternehmen: Content-Erstellung, Community Management und Reporting. Jetzt kostenloses Erstgespräch vereinbaren!">
-  <Section eyebrow="Startseite">
-    <h1 class="mj-h1">Einzigartiger Social-Media-Auftritt für Ihr Unternehmen</h1>
-    <p class="todo">TODO: Inhalt aus content/startseite.md folgt in Phase 4.</p>
+<BaseLayout page="home">
+  <section class="mj-hero mj-section" data-anim="parallax-soft">
+    <div class="mj-wrap mj-hero__grid">
+      <div class="mj-stack">
+        <h1 class="mj-display-xl" data-anim="mask-reveal">
+          <span class="mask-line"><span><span class="mj-hl">Einzigartiger</span> Social-Media-Auftritt für Ihr Unternehmen</span></span>
+        </h1>
+        <p class="mj-lead" data-anim="rise">Wir machen strategisches Social-Media-Marketing für lokale Unternehmen</p>
+        <div class="mj-row" data-anim="rise">
+          <Button href="/kontakt" size="lg" arrow>Kontakt aufnehmen</Button>
+        </div>
+      </div>
+      <div class="mj-hero__media" data-anim="parallax-soft" data-parallax="self">
+        <Image src={hero} alt="Jennifer Pelka" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <Section id="leistungen" eyebrow="Leistungen" title="Was wir machen">
+    <BentoGrid>
+      {leistungen.map((l) => <Tile title={l.title} icon={l.icon} tone={l.tone} span={l.span}>{l.text}</Tile>)}
+    </BentoGrid>
   </Section>
+
+  <Section id="ablauf" eyebrow="Zusammenarbeit" title="Wie die Zusammenarbeit abläuft" subtle>
+    <ProcessSteps steps={steps} />
+  </Section>
+
+  <Section id="referenzen" eyebrow="Referenzen" title="Was wir bisher erreicht haben">
+    <ul class="results" data-anim="stagger" role="list" aria-label="Ergebnisse als Mockups" tabindex="0">
+      {results.map((r) => (
+        <li class="result"><Image src={r.image} alt={r.alt} width={480} height={480} loading="lazy" /></li>
+      ))}
+    </ul>
+  </Section>
+
+  <Section id="reels" eyebrow="Reels" title="Was wir bereits umgesetzt haben" subtle>
+    <div class="reels" data-anim="stagger">
+      {reels.map((r) => <PhoneMockup label={`Reel ${r.n}`} video={r.video} position="center" />)}
+    </div>
+  </Section>
+
+  <Section id="nutzen" eyebrow="Ihr Nutzen" title="Warum jedes Unternehmen einen einzigartigen Social-Media-Auftritt haben sollte">
+    <ul class="benefits" data-anim="stagger">
+      {benefits.map(([text, tier]) => <li class={`benefit benefit--${tier}`}>{text}</li>)}
+    </ul>
+  </Section>
+
+  <Section id="kunden" eyebrow="Kunden" title="Wem wir bereits helfen konnten" subtle>
+    <Marquee label="Unsere Kunden" items={clients} />
+  </Section>
+
+  <CtaBand
+    badge="Kostenloses Erstgespräch"
+    title="Lassen Sie uns Ihren Auftritt gemeinsam aufbauen."
+    text="Erzählen Sie uns von Ihrem Unternehmen. Im Erstgespräch klären wir Ziele, Zielgruppen und ob die Zusammenarbeit passt."
+  />
 </BaseLayout>

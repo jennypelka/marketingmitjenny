@@ -2,7 +2,8 @@
 export const site = {
   name: 'Marketing mit Jenny',
   brand: 'marketingmitjenny',
-  url: 'https://marketingmitjenny.de',
+  // PUBLIC_SITE_URL overrides the live domain for preview builds (see docs/anleitung-live-gang.md)
+  url: (import.meta.env.PUBLIC_SITE_URL || 'https://marketingmitjenny.de').replace(/\/$/, ''),
   tagline: 'Strategisches Social-Media-Marketing für lokale Unternehmen',
   person: 'Jennifer Pelka',
   address: {

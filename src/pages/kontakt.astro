@@ -1,11 +1,35 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import { site } from '../lib/site';
+// kontakt.jpg is a derived crop of ueber-uns-1.jpg (Max: use what exists)
+import photo from '../../content/media/kontakt.jpg';
+const tel = site.phone.replace(/\s/g, '');
 ---
 
-<BaseLayout title="Kontakt aufnehmen | Marketing mit Jenny" description="TODO: Meta-Description für Kontakt (Freigabe Jenny)">
-  <Section eyebrow="Kontakt">
-    <h1 class="mj-h1">Wir bringen Ihr Social Media auf das nächste Level</h1>
-    <p class="todo">TODO: Inhalt aus content/kontakt.md folgt in Phase 5.</p>
+<BaseLayout page="kontakt">
+  <PageIntro crumb="Kontakt" crumbHref="/kontakt" eyebrow="Kontakt" title="Wir bringen Ihr Social Media auf das nächste Level" />
+  <Section id="kontaktdaten">
+    <div class="contact-grid">
+      <div class="contact-card" data-anim="rise">
+        <address>
+          <strong>{site.person}</strong><br />
+          Social Media Agentur<br />
+          {site.address.street}<br />
+          {site.address.zip} {site.address.city}
+        </address>
+        <dl>
+          <dt>Telefon</dt><dd><a href={`tel:${tel}`}>{site.phone}</a></dd>
+          <dt>E-Mail</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+        </dl>
+        <Button href={`mailto:${site.email}`} size="lg" arrow>Schreiben Sie uns eine E-Mail</Button>
+      </div>
+      <div class="split__media" data-anim="rise">
+        <Image src={photo} alt="Porträt von Jennifer Pelka, lächelnd" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="lazy" />
+      </div>
+    </div>
   </Section>
 </BaseLayout>
