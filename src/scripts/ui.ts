@@ -31,3 +31,4 @@ document.addEventListener('keydown', (e) => {
     menuBtn.focus();
   }
 });
+import './anim';

@@ -8,6 +8,7 @@ und `reference/startseite-neu.html`.
 | --- | --- | --- |
 | startseite.md | `/` | 7 Sektionen + CTA-Band |
 | ueber-uns.md | `/ueber-uns` | h1 nach oben ziehen |
+| leistungen.md | `/leistungen` | neu (Variante A), Texte aus startseite.md Sektion 2 |
 | referenzen.md | `/referenzen` | braucht eigenes h1 |
 | kontakt.md | `/kontakt` | Formular braucht neues Ziel |
 | impressum.md | `/impressum` | wörtlich übernehmen |
