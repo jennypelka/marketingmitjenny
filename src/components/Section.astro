@@ -1,0 +1,24 @@
+---
+// Shared section skeleton: eyebrow, h2, optional lead, content. Spacing only via .mj-section (--section-y, --gutter).
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+  subtle?: boolean;
+}
+const { id, eyebrow, title, lead, subtle = false } = Astro.props;
+---
+
+<section class:list={['mj-section', { 'mj-section--subtle': subtle }]} id={id} aria-labelledby={title ? `${id ?? 'sec'}-title` : undefined}>
+  <div class="mj-wrap">
+    {(eyebrow || title || lead) && (
+      <div class="mj-head">
+        {eyebrow && <p class="mj-eyebrow">{eyebrow}</p>}
+        {title && <h2 class="mj-h2" id={`${id ?? 'sec'}-title`}>{title}</h2>}
+        {lead && <p class="mj-lead">{lead}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>
