@@ -20,3 +20,10 @@ Static Astro site for Marketing mit Jenny. Briefing: `BRIEFING.md`, working rule
 ## Constraints from the hosting choice
 
 GitHub Pages cannot send custom HTTP headers or 301 redirects. Security headers are set as `<meta>` tags (CSP, referrer); `frame-ancestors`, HSTS (enable "Enforce HTTPS" in Pages) and `Permissions-Policy` are not available.
+
+## Docs
+
+- `docs/datenschutz-inventar.md`: all third-party contacts and the network check
+- `docs/cmp-entscheidung.md`: why no consent banner (yet)
+- `docs/keywords.md`, `docs/aeo-testprompts.md`: SEO and AEO working notes
+- `docs/deploy.md`: GitHub Pages and Strato DNS
