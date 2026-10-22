@@ -70,7 +70,7 @@ TODO: Posterbilder und Untertitel; Kunde je Reel für Bildunterschrift.
 
 (Alt: Tippfehler „einzigarten“, korrigiert laut design-system/README.md.)
 Alt als JavaScript-Wortwolke (wordcloud2.js) – für Crawler unsichtbar. Neu als statisches HTML
-(Liste/Chips), Gewichtung über Größe oder Reihenfolge, Reihenfolge beibehalten:
+(Entscheidung Max: Variante B „Typo-Bänder“, drei gegenläufige Laufbänder auf dunklem Grund, Begriffe 1 bis 3, 4 bis 6 und 7 bis 10), Reihenfolge beibehalten:
 
 1. Mehr Kundenanfragen (Gewicht 80)
 2. Höhere Sichtbarkeit (64)
