@@ -1,11 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
 ---
 
 <BaseLayout title="Impressum | Marketing mit Jenny" description="Impressum von Marketing mit Jenny, Jennifer Pelka, Social Media Agentur, Händelstraße 19, 82538 Geretsried.">
-  <Section eyebrow="Rechtliches">
-    <h1 class="mj-h1">Impressum</h1>
-    <p class="todo">TODO: Inhalt aus content/impressum.md folgt in Phase 5.</p>
+  <PageIntro crumb="Impressum" crumbHref="/impressum" title="Impressum" />
+  <Section id="impressum-text">
+    <!-- Legal text, verbatim from content/impressum.md (e-recht24.de). Changes only by Jenny. -->
+    <!-- TODO (Jenny): The DSA is Regulation (EU) 2022/2065, the text says 2022/265. Regenerate in the generator instead of editing by hand. -->
+    <div class="legal">
+      <p>Jennifer Pelka<br />Social Media Agentur<br />Händelstraße 19<br />82538 Geretsried</p>
+      <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br />DE449739689</p>
+      <h2>Kontakt</h2>
+      <p>Telefon: +49 155 63469509<br />Telefax: 08171909889<br />E-Mail: <a href="mailto:info@marketingmitjenny.de">info@marketingmitjenny.de</a></p>
+      <h2>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
+      <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      <h2>Zentrale Kontaktstelle nach dem Digital Services Act - DSA (Verordnung (EU) 2022/265)</h2>
+      <p>Unsere zentrale Kontaktstelle für Nutzer und Behörden nach Art. 11, 12 DSA erreichen Sie wie folgt:<br />E-Mail: <a href="mailto:info@marketingmitjenny.de">info@marketingmitjenny.de</a><br />Telefon: +49 155 63469509</p>
+      <p>Die für den Kontakt zur Verfügung stehenden Sprachen sind: Deutsch, Englisch.</p>
+      <p>Quelle: e-recht24.de</p>
+    </div>
   </Section>
 </BaseLayout>

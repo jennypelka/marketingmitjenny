@@ -1,11 +1,47 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
+import CtaBand from '../components/CtaBand.astro';
+// TODO: ueber-uns-1.jpg alt text from Jenny (draft below), ueber-uns-2.jpg not delivered yet
+import jenny from '../../content/media/ueber-uns-1.jpg';
 ---
 
-<BaseLayout title="Social-Media-Agentur Geretsried | Marketing mit Jenny" description="Professionelle Social-Media-Agentur aus Geretsried. Wir bringen Ihr Social Media auf das nächste Level. Jetzt Kontakt aufnehmen!">
-  <Section eyebrow="Über uns">
-    <h1 class="mj-h1">Social-Media-Agentur aus Geretsried</h1>
-    <p class="todo">TODO: Inhalt aus content/ueber-uns.md folgt in Phase 5.</p>
+<BaseLayout
+  title="Social-Media-Agentur Geretsried | Marketing mit Jenny"
+  description="Professionelle Social-Media-Agentur aus Geretsried. Wir bringen Ihr Social Media auf das nächste Level. Jetzt Kontakt aufnehmen!"
+>
+  <PageIntro crumb="Über uns" crumbHref="/ueber-uns" eyebrow="Über uns" title="Social-Media-Agentur aus Geretsried">
+    <p class="mj-lead" data-anim="rise">Wir sind eine Social-Media-Agentur aus Geretsried mit klarem Fokus: professionelle Auftritte, die sichtbar machen, Vertrauen aufbauen und Mitarbeiter oder Kunden anziehen. Wir entwickeln Strategien, produzieren vor Ort Kurzvideos und übersetzen Marken in konsistente Inhalte für Instagram, TikTok, YouTube, LinkedIn und Facebook.</p>
+  </PageIntro>
+
+  <Section id="jenny" subtle>
+    <div class="split">
+      <div class="mj-stack" data-anim="rise">
+        <p class="mj-eyebrow">Gründerin</p>
+        <h2 class="mj-h2">Über Jenny</h2>
+        <p class="mj-text">Die Agentur wurde von Jenny gegründet und wird von ihr geführt. Sie verantwortet Strategie und Creative Direction, konzipiert Kurzvideo-Formate, leitet Drehs vor Ort und stellt sicher, dass Storytelling, Schnitt und Umsetzung trend- sowie plattformgerecht sind. Ihre Motivation: Unternehmen aus der Region sichtbarer machen und messbare Ergebnisse ermöglichen.</p>
+      </div>
+      <div class="split__media" data-anim="rise">
+        <Image src={jenny} alt="Jennifer Pelka, Gründerin von Marketing mit Jenny" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="lazy" />
+      </div>
+    </div>
   </Section>
+
+  <Section id="arbeitsweise">
+    <div class="split split--reverse">
+      <div class="mj-stack" data-anim="rise">
+        <p class="mj-eyebrow">So arbeiten wir</p>
+        <h2 class="mj-h2">Arbeitsweise</h2>
+        <p class="mj-text">Unsere Stärke liegt im Kreativen: Menschen vor der Kamera begleiten, Geschichten in Reels verwandeln und daraus echte Reichweite formen. Die Nähe zu Unternehmen aus der Region prägt unsere Arbeit mit kurzen Wegen, klaren Absprachen und verlässlichen Abläufen. Jede Zusammenarbeit startet mit einem strukturierten Plan und liefert Learnings, die in den nächsten Zyklus einfließen.</p>
+      </div>
+      <div class="split__media" data-anim="rise">
+        <!-- TODO: ueber-uns-2.jpg liefern (Alt-Text von Jenny) -->
+        <div class="split__ph">Bild folgt<small>Platzhalter für ueber-uns-2.jpg</small></div>
+      </div>
+    </div>
+  </Section>
+
+  <CtaBand title="Social Media auf das nächste Level bringen" />
 </BaseLayout>

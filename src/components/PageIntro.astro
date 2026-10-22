@@ -1,0 +1,24 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+
+// First section of every subpage: breadcrumbs, eyebrow, the single h1, optional lead.
+interface Props {
+  crumb: string;
+  crumbHref: string;
+  eyebrow?: string;
+  title: string;
+  subtle?: boolean;
+}
+const { crumb, crumbHref, eyebrow, title, subtle = false } = Astro.props;
+---
+
+<section class:list={['mj-section', 'page-intro', { 'mj-section--subtle': subtle }]}>
+  <div class="mj-wrap">
+    <Breadcrumbs items={[{ name: crumb, href: crumbHref }]} />
+    <div class="mj-stack">
+      {eyebrow && <p class="mj-eyebrow">{eyebrow}</p>}
+      <h1 class="mj-h1" data-anim="mask-reveal"><span class="mask-line"><span>{title}</span></span></h1>
+      <slot />
+    </div>
+  </div>
+</section>

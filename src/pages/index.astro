@@ -9,6 +9,7 @@ import ProcessSteps from '../components/ProcessSteps.astro';
 import PhoneMockup from '../components/PhoneMockup.astro';
 import Marquee from '../components/Marquee.astro';
 import CtaBand from '../components/CtaBand.astro';
+import { leistungen } from '../lib/leistungen';
 
 // TODO: hero-jennifer-pelka.jpg is not delivered yet, ueber-uns-1.jpg is the stand-in (Max, Phase 4)
 import hero from '../../content/media/ueber-uns-1.jpg';
@@ -95,21 +96,7 @@ const clients = [
 
   <Section id="leistungen" eyebrow="Leistungen" title="Was wir machen">
     <BentoGrid>
-      <Tile title="Social Media Strategie" icon="chart" tone="brand" span={4}>
-        Wir definieren Positionierung, Ziele und Zielgruppen. Wir legen passende Kanäle fest und definieren Formatarchitektur, Tonalität und Postingfrequenz. Daraus erstellen wir einen klaren Content- bzw. Drehplan mit Szenen, Hooks und Verantwortlichkeiten. Ergebnis: ein strukturierter Überblick und ein umsetzbarer Fahrplan.
-      </Tile>
-      <Tile title="Content Erstellung" icon="camera">
-        Wir kommen zu Ihnen vor Ort ins Unternehmen und produzieren Content, mit Schwerpunkt auf Kurzvideos. Wir bringen das notwendige Equipment mit, sodass Sie sich um nichts kümmern müssen. Für ergänzende Formate liefern wir CI-konforme Templates, Thumbnails und geeignete Animationen.
-      </Tile>
-      <Tile title="Schnitt, Bearbeitung & Upload" icon="scissors" tone="accent">
-        Wir schneiden und bearbeiten die Videos, inklusive sauberer Übergänge und Untertitel. Effekte und Stil werden an aktuelle Social-Media-Trends und Plattform Formate angepasst. Wir übernehmen für jede Plattform den Upload, Beschreibung, Hashtags und Timing.
-      </Tile>
-      <Tile title="Community Management" icon="chat" tone="wash">
-        Interaktion ist zentral für kontinuierliches Wachstum. Wir beantworten Nachrichten und Kommentare zeitnah und konsistent und interagieren proaktiv über die eigenen Posts hinaus. Wir folgen ausgewählten, relevanten Accounts strategisch, um Reichweite, Sichtbarkeit und Dialoge zu erhöhen.
-      </Tile>
-      <Tile title="Reporting" icon="report">
-        Wir erstellen monatlich ein Reporting mit den wichtigsten Kennzahlen. Enthalten sind klare Insights und konkrete Handlungsempfehlungen. Es wird sichtbar, welche Formate funktionieren, wo Reichweite entsteht und was angepasst wird.
-      </Tile>
+      {leistungen.map((l) => <Tile title={l.title} icon={l.icon} tone={l.tone} span={l.span}>{l.text}</Tile>)}
     </BentoGrid>
   </Section>
 
