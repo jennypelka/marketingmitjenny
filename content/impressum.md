@@ -18,7 +18,6 @@ DE449739689
 
 **Kontakt**
 Telefon: +49 155 63469509
-Telefax: 08171909889
 E-Mail: info@marketingmitjenny.de
 
 **Verbraucherstreitbeilegung/Universalschlichtungsstelle**

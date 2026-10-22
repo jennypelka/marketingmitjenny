@@ -4,17 +4,18 @@ import SEO from '../components/SEO.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { themeScript } from '../lib/theme-script';
+import { pages, type PageKey } from '../lib/pages';
+import { buildSchema } from '../lib/schema';
 import '../styles/tokens.css';
 import '../../design-system/components/bundle.css';
 import '../styles/site.css';
 import '../styles/anim.css';
 
 interface Props {
-  title: string;
-  description: string;
-  noindex?: boolean;
+  page: PageKey;
 }
-const { title, description, noindex } = Astro.props;
+const meta = pages[Astro.props.page];
+const jsonLd = JSON.stringify(buildSchema(Astro.props.page));
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
 const themeHash = createHash('sha256').update(themeScript).digest('base64');
 // GitHub Pages cannot send headers; a meta CSP covers what the spec allows (no frame-ancestors).
@@ -49,7 +50,8 @@ const csp = [
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <slot name="head" />
-    <SEO title={title} description={description} path={path} noindex={noindex} />
+    <SEO title={meta.title} description={meta.description} path={path} noindex={'noindex' in meta && meta.noindex} ogImage={meta.ogImage} />
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
   </head>
   <body class="mj site">
     <a class="skip-link" href="#main">Zum Inhalt springen</a>

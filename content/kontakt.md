@@ -16,9 +16,9 @@ neu ein eigenes Ziel (siehe BRIEFING Abschnitt 6.1).
 
 - h1 (alt h2): Wir bringen Ihr Social Media auf das nächste Level
 - Bild: kontakt.jpg (alt „Rest 1.jpg“). TODO: Alt-Text von Jenny.
-- Zeile alt: „Schreiben Sie mir eine Email“ → TODO: Freigabe „Schreiben Sie uns“
+- Zeile alt: „Schreiben Sie mir eine Email“ → „Schreiben Sie uns eine E-Mail“ (freigegeben)
 
-## 2. Formular
+## 2. Formular (ENTFÄLLT: nur mailto-Link, Entscheidung Max; Abschnitt nur als Altstand)
 
 Felder (alt):
 - Firmenname / Name
@@ -41,7 +41,7 @@ Händelstraße 19
 82538 Geretsried
 
 Telefon: +49 155 63469509
-Telefax: 08171909889 (TODO: noch aktuell? Sonst überall entfernen.)
+(Telefax entfällt: nicht mehr aktuell, Entscheidung Max)
 E-Mail: info@marketingmitjenny.de (nicht im Klartext einbetten, siehe BRIEFING 6.1)
 
 ## 4. Kein CTA-Band auf dieser Seite (Seite ist selbst der CTA), direkt Footer.

@@ -5,12 +5,12 @@ import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 import { site } from '../lib/site';
-// TODO: kontakt.jpg not delivered, ueber-uns-1.jpg is the stand-in (Max); alt text from Jenny
-import photo from '../../content/media/ueber-uns-1.jpg';
+// kontakt.jpg is a derived crop of ueber-uns-1.jpg (Max: use what exists)
+import photo from '../../content/media/kontakt.jpg';
 const tel = site.phone.replace(/\s/g, '');
 ---
 
-<BaseLayout title="Kontakt aufnehmen | Marketing mit Jenny" description="TODO: Meta-Description für Kontakt (Freigabe Jenny)">
+<BaseLayout page="kontakt">
   <PageIntro crumb="Kontakt" crumbHref="/kontakt" eyebrow="Kontakt" title="Wir bringen Ihr Social Media auf das nächste Level" />
   <Section id="kontaktdaten">
     <div class="contact-grid">
@@ -23,15 +23,12 @@ const tel = site.phone.replace(/\s/g, '');
         </address>
         <dl>
           <dt>Telefon</dt><dd><a href={`tel:${tel}`}>{site.phone}</a></dd>
-          <!-- TODO: Telefax noch aktuell? Sonst überall entfernen (Jenny). -->
-          <dt>Telefax</dt><dd>08171909889</dd>
           <dt>E-Mail</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
         </dl>
-        <!-- TODO: Wortlaut „Schreiben Sie uns eine E-Mail“ Freigabe Jenny (alt: Ich-Form) -->
         <Button href={`mailto:${site.email}`} size="lg" arrow>Schreiben Sie uns eine E-Mail</Button>
       </div>
       <div class="split__media" data-anim="rise">
-        <Image src={photo} alt="Jennifer Pelka, Gründerin von Marketing mit Jenny" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="lazy" />
+        <Image src={photo} alt="Porträt von Jennifer Pelka, lächelnd" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="lazy" />
       </div>
     </div>
   </Section>

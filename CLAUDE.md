@@ -22,3 +22,4 @@ Entscheidungen (Stand Phase 0):
 - /leistungen (Entscheidung Max, Variante A): fünf Leistungstexte wörtlich aus content/startseite.md; Startseite behält Sektion #leistungen.
 - Reels laufen im iPhone-Rahmen (src/assets/iphone-frame.png, Video darunter).
 - Hero-Foto vorerst content/media/ueber-uns-1.jpg.
+- Telefax entfällt überall (Max). Alt-Texte für Fotos: Entwürfe im Code, Jenny kann ändern. ueber-uns-2.jpg und kontakt.jpg sind Ausschnitte von ueber-uns-1.jpg.
