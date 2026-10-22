@@ -23,7 +23,9 @@ for (const file of pages) {
   else if (title.length > 60) warnings.push(`${file}: title ${title.length} chars (max 60)`);
   if (!desc) errors.push(`${file}: missing meta description`);
   else if (desc.length < 120 || desc.length > 155) warnings.push(`${file}: description ${desc.length} chars (120-155)`);
-  if (!/<link rel="canonical" href="https:\/\/marketingmitjenny\.de[^"]*"/.test(html)) errors.push(`${file}: missing canonical`);
+  if (!/<link rel="canonical" href="https?:\/\/[^"]+"/.test(html)) errors.push(`${file}: missing canonical`);
+  const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1] ?? '';
+  if (/\/index$|\.html$/.test(canonical)) errors.push(`${file}: canonical ${canonical} must not end in /index or .html`);
   for (const prop of ['og:title', 'og:description', 'og:url', 'og:image', 'og:locale']) {
     if (!html.includes(`property="${prop}"`)) errors.push(`${file}: missing ${prop}`);
   }

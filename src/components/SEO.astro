@@ -8,7 +8,9 @@ interface Props {
   noindex?: boolean;
   ogImage: string;
 }
-const { title, description, path, noindex = false, ogImage } = Astro.props;
+const { title, description, path, ogImage } = Astro.props;
+// Preview builds (PUBLIC_NOINDEX=true) must never be indexed
+const noindex = Astro.props.noindex || import.meta.env.PUBLIC_NOINDEX === 'true';
 const canonical = path === '/' ? `${site.url}/` : `${site.url}${path}`;
 const image = `${site.url}${ogImage}`;
 const imageAlt = `${site.name}: ${title}`;

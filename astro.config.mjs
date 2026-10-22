@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // GitHub Pages serves /ueber-uns from ueber-uns.html without a trailing slash.
 export default defineConfig({
-  site: 'https://marketingmitjenny.de',
+  site: (process.env.PUBLIC_SITE_URL || 'https://marketingmitjenny.de').replace(/\/$/, ''),
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },

@@ -16,7 +16,7 @@ interface Props {
 }
 const meta = pages[Astro.props.page];
 const jsonLd = JSON.stringify(buildSchema(Astro.props.page));
-const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const path = meta.path;
 const themeHash = createHash('sha256').update(themeScript).digest('base64');
 // GitHub Pages cannot send headers; a meta CSP covers what the spec allows (no frame-ancestors).
 const csp = [
