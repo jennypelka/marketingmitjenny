@@ -1,0 +1,15 @@
+---
+// Endless strip. Items are rendered twice (second set aria-hidden) for the seamless loop.
+interface Props {
+  items: string[];
+  label: string;
+}
+const { items, label } = Astro.props;
+---
+
+<div class="mj-marquee" role="group" aria-label={label} data-anim="marquee">
+  <div class="mj-marquee__track">
+    {items.map((item) => <span class="mj-marquee__item">{item}</span>)}
+    {items.map((item) => <span class="mj-marquee__item" aria-hidden="true">{item}</span>)}
+  </div>
+</div>

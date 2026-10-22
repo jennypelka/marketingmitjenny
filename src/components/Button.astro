@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  href: string;
+  variant?: 'primary' | 'accent' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  arrow?: boolean;
+  external?: boolean;
+}
+const { href, variant = 'primary', size = 'md', arrow = false, external = false } = Astro.props;
+const classes = ['mj-btn', variant !== 'primary' && `mj-btn--${variant}`, size !== 'md' && `mj-btn--${size}`].filter(Boolean);
+---
+
+<a class:list={classes} href={href} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
+  <slot />
+  {arrow && <Icon name="arrow" />}
+</a>

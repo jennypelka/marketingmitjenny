@@ -85,3 +85,9 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 /* Progressive enhancement: hidden state only when the page script flagged `js` */
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 .mj-footer__heading { margin: 0 0 var(--space-1); font: 700 0.8125rem/1.2 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+
+/* Process step illustration, phone placeholder */
+.mj-pstep__media { width: 100%; height: auto; border-radius: var(--radius-lg); }
+.phone__todo { display: grid; gap: var(--space-2); margin: 0; padding: var(--space-5); text-align: center; color: var(--ink-900); font: 700 1rem/1.35 var(--font-sans); }
+.phone__todo small { font: 500 0.8125rem/1.4 var(--font-sans); }
+.mj-process { margin: 0; padding: 0; list-style: none; }
