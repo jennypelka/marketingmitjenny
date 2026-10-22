@@ -21,3 +21,5 @@ Planned substitutes (TODO: Jenny confirms or replaces):
 - Reels: phone mockups with gradient placeholder and `TODO:`, no video files.
 
 Update: `ueber-uns-2.jpg` (laptop detail) and `kontakt.jpg` (portrait) are crops derived from `ueber-uns-1.jpg`, made on Max's instruction. Replace them when real photos exist.
+
+Reels (delivered by Max as screen recordings with an inner phone frame, 608x1080, 60 s): `reel-1.mp4` (Oberhauser) and `reel-2.mp4` (WorNet) are cropped to the inner phone screen (`crop=404:842:108:138`), 30 fps, H.264, audio removed (reels play muted), about 4 MB each. The `reel-N-poster.jpg` posters are frames at 1.5 s. Reels 3 and 4 are still missing.
