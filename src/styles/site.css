@@ -110,8 +110,8 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 
 /* Results: insight mockups on light cards, slider below 992px */
 .results { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
-.result { display: grid; place-items: center; aspect-ratio: 1; padding: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--white); overflow: hidden; }
-.result img { width: 100%; height: 100%; object-fit: contain; }
+.result { display: grid; place-items: center; aspect-ratio: 1; width: 100%; padding: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--white); overflow: hidden; }
+.result img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.2); /* the mockups have wide white margins */ }
 @media (max-width: 991px) {
   .results { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: var(--space-4); padding-bottom: var(--space-3); -webkit-overflow-scrolling: touch; }
   .result { flex: 0 0 min(80%, 22rem); scroll-snap-align: start; }
@@ -175,3 +175,24 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .skip-link { min-height: 2.75rem; display: inline-flex; align-items: center; }
 .crumbs a { display: inline-flex; align-items: center; min-height: 2.75rem; min-width: 2.75rem; }
 .crumbs { gap: 0 var(--space-2); align-items: center; }
+
+/* Compact vertical rhythm (Max, desktop review): overrides the design-system section spacing */
+:root { --section-y: clamp(2.5rem, 5vw, 4.25rem); }
+.mj-head { margin-bottom: var(--space-6); }
+.page-intro { padding-bottom: 0; }
+.mj-section:not(.mj-section--subtle) + .mj-section:not(.mj-section--subtle) { padding-top: calc(var(--section-y) * 0.5); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Contact: smaller, sharper portrait */
+.contact-grid { grid-template-columns: 1.3fr 1fr; }
+.contact-grid .split__media { aspect-ratio: 1; max-width: 26rem; width: 100%; justify-self: end; }
+@media (max-width: 991px) { .contact-grid .split__media { justify-self: start; aspect-ratio: 4 / 3; max-width: none; } }
+
+/* Result captions under the insight mockups */
+.result-item { display: flex; flex-direction: column; gap: var(--space-3); }
+.result-item .result { aspect-ratio: 1; }
+.result-facts { margin: 0; padding: 0 var(--space-2); list-style: none; display: grid; gap: var(--space-1); font: 500 0.9375rem/1.4 var(--font-sans); color: var(--fg-soft); }
+.result-facts li { position: relative; padding-left: var(--space-4); }
+.result-facts li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 0.4rem; height: 0.4rem; border-radius: var(--radius-circle); background: var(--brand); }
+@media (max-width: 991px) { .result-item { flex: 0 0 min(80%, 22rem); scroll-snap-align: start; } .result-item .result { flex: none; } }
