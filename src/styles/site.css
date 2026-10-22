@@ -141,18 +141,20 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 
 /* Benefits: dark band with three counter-running typographic strips (design proposal B).
    Order and wording of the old word cloud stay; the strips only change the presentation. */
-.benefits-band { position: relative; overflow: hidden; isolation: isolate; background: var(--bg); color: var(--fg); }
+.benefits-band { position: relative; overflow: hidden; isolation: isolate; background: var(--purple-700); color: var(--white); }
+.benefits-band .mj-eyebrow { color: var(--peach-300); }
+.benefits-band .mj-h2 { color: var(--white); }
 .benefits-band::before, .benefits-band::after { content: ''; position: absolute; z-index: -1; border-radius: var(--radius-circle); pointer-events: none; }
-.benefits-band::before { left: -14rem; bottom: -22rem; width: 56rem; aspect-ratio: 1; background: radial-gradient(closest-side, color-mix(in srgb, var(--purple-600) 38%, transparent), transparent); }
-.benefits-band::after { right: -16rem; top: -18rem; width: 48rem; aspect-ratio: 1; background: radial-gradient(closest-side, color-mix(in srgb, var(--peach-300) 22%, transparent), transparent); }
+.benefits-band::before { left: -14rem; bottom: -22rem; width: 56rem; aspect-ratio: 1; background: radial-gradient(closest-side, color-mix(in srgb, var(--purple-400) 34%, transparent), transparent); }
+.benefits-band::after { right: -16rem; top: -18rem; width: 48rem; aspect-ratio: 1; background: radial-gradient(closest-side, color-mix(in srgb, var(--peach-300) 26%, transparent), transparent); }
 .benefit-bands { display: flex; flex-direction: column; gap: clamp(1rem, 2.4vw, 1.875rem); margin-top: var(--space-7); }
 .benefit-band { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 7%, black 93%, transparent); mask-image: linear-gradient(90deg, transparent, black 7%, black 93%, transparent); }
 .benefit-track { display: flex; align-items: center; width: max-content; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; }
 .benefit-track li { display: inline-flex; align-items: center; gap: clamp(1.5rem, 3.4vw, 2.75rem); padding-right: clamp(1.5rem, 3.4vw, 2.75rem); white-space: nowrap; }
 .benefit-track li::after { content: ''; flex: none; width: 0.2em; height: 0.2em; border-radius: var(--radius-circle); background: var(--accent); }
-.benefit-band--a .benefit-track { font-size: clamp(2.5rem, 8vw, 6.5rem); color: var(--fg); animation: benefit-left 44s linear infinite; }
-.benefit-band--b .benefit-track { font-size: clamp(2.5rem, 8vw, 6.5rem); color: var(--bg); text-shadow: 0.022em 0 var(--fg), -0.022em 0 var(--fg), 0 0.022em var(--fg), 0 -0.022em var(--fg), 0.016em 0.016em var(--fg), -0.016em -0.016em var(--fg), 0.016em -0.016em var(--fg), -0.016em 0.016em var(--fg); animation: benefit-right 52s linear infinite; /* outline via shadows: -webkit-text-stroke shows the overlapping contours of the variable font */ }
-.benefit-band--c .benefit-track { font-size: clamp(1.75rem, 5vw, 4rem); color: var(--accent); animation: benefit-left 56s linear infinite; }
+.benefit-band--a .benefit-track { font-size: clamp(2.5rem, 8vw, 6.5rem); color: var(--white); animation: benefit-left 44s linear infinite; }
+.benefit-band--b .benefit-track { font-size: clamp(2.5rem, 8vw, 6.5rem); color: var(--purple-700); text-shadow: 0.022em 0 var(--white), -0.022em 0 var(--white), 0 0.022em var(--white), 0 -0.022em var(--white), 0.016em 0.016em var(--white), -0.016em -0.016em var(--white), 0.016em -0.016em var(--white), -0.016em 0.016em var(--white); animation: benefit-right 52s linear infinite; /* outline via shadows: -webkit-text-stroke shows the overlapping contours of the variable font */ }
+.benefit-band--c .benefit-track { font-size: clamp(1.75rem, 5vw, 4rem); color: var(--peach-300); animation: benefit-left 56s linear infinite; }
 .benefit-band:hover .benefit-track { animation-play-state: paused; }
 @keyframes benefit-left { to { transform: translateX(-50%); } }
 @keyframes benefit-right { from { transform: translateX(-50%); } to { transform: none; } }
@@ -267,3 +269,12 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .mj-marquee--manual { cursor: grab; }
 .mj-marquee--manual.is-dragging { cursor: grabbing; user-select: none; }
 .marquee-logo img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
+
+/* Benefits band on small screens: smaller type and tighter spacing to match the rest of the page */
+@media (max-width: 767px) {
+  .benefits-band .mj-h2 { font-size: 1.625rem; }
+  .benefit-bands { gap: 0.5rem; margin-top: var(--space-5); }
+  .benefit-band--a .benefit-track, .benefit-band--b .benefit-track { font-size: clamp(1.625rem, 8vw, 2.125rem); }
+  .benefit-band--c .benefit-track { font-size: clamp(1.125rem, 5.4vw, 1.375rem); }
+  .benefit-track li { gap: 1rem; padding-right: 1rem; }
+}
