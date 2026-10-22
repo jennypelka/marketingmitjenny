@@ -2,7 +2,7 @@
 
 ## Inhalte und Medien (Jenny)
 
-- [ ] Videos `reel-1.mp4` bis `reel-4.mp4` hochladen, danach Posterbilder und Untertitel. Kunde je Reel für Bildunterschriften. Platzhalter: `src/components/PhoneMockup.astro` zeigt `TODO:`.
+- [ ] Reels sind eingebaut. Offen: Untertitel (Videos laufen stumm) und optional Kunde je Reel für Bildunterschriften.
 - [ ] Hero-Foto `hero-jennifer-pelka.jpg` (Stand-in: `ueber-uns-1.jpg`, `src/pages/index.astro`).
 - [ ] Echte Fotos für „Über uns“ und „Kontakt“ (aktuell Ausschnitte von `ueber-uns-1.jpg`).
 - [ ] Alt-Texte prüfen: Fotos und die vier Mockups (Entwürfe in `index.astro`, `ueber-uns.astro`, `kontakt.astro`). Kunde und Inhalt je Mockup.

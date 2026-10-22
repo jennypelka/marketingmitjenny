@@ -95,7 +95,7 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .phone--center { --fan-x: 0px; --fan-r: 0deg; transform: none; z-index: 2; }
 .phone--left { --fan-x: 40px; --fan-r: -7deg; }
 .phone--right { --fan-x: -40px; --fan-r: 7deg; }
-.phone__screen { position: absolute; inset: 0.5% 1.8% 0.5% 2.2%; overflow: hidden; border-radius: 11% / 5.4%; background: var(--grad-warm); display: grid; place-items: center; }
+.phone__screen { position: absolute; inset: 0.8% 2.6% 0.8% 3%; overflow: hidden; border-radius: 10% / 4.9%; background: var(--grad-warm); display: grid; place-items: center; }
 .phone__screen video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .phone__frame { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .phone__todo { display: grid; gap: var(--space-2); margin: 0; padding: var(--space-5); text-align: center; color: var(--ink-900); font: 700 1rem/1.35 var(--font-sans); }
@@ -158,7 +158,7 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .contact-card dt { font-weight: 600; color: var(--fg-muted); }
 .contact-card dd { margin: 0; }
 .contact-card a:not(.mj-btn) { color: var(--brand-text); text-underline-offset: 4px; }
-@media (max-width: 991px) { .contact-grid { grid-template-columns: 1fr; } }
+
 
 .legal { max-width: var(--content-narrow); display: flex; flex-direction: column; gap: var(--space-4); font: 400 1.0625rem/1.65 var(--font-sans); color: var(--fg-soft); }
 .legal h2 { margin: var(--space-5) 0 0; font: 700 1.25rem/1.3 var(--font-display); color: var(--fg); }
@@ -185,9 +185,6 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 /* Contact: smaller, sharper portrait */
-.contact-grid { grid-template-columns: 1.3fr 1fr; }
-.contact-grid .split__media { aspect-ratio: 1; max-width: 26rem; width: 100%; justify-self: end; }
-@media (max-width: 991px) { .contact-grid .split__media { justify-self: start; aspect-ratio: 4 / 3; max-width: none; } }
 
 /* Result captions under the insight mockups */
 .result-item { display: flex; flex-direction: column; gap: var(--space-3); }
@@ -196,3 +193,40 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .result-facts li { position: relative; padding-left: var(--space-4); }
 .result-facts li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 0.4rem; height: 0.4rem; border-radius: var(--radius-circle); background: var(--brand); }
 @media (max-width: 991px) { .result-item { flex: 0 0 min(80%, 22rem); scroll-snap-align: start; } .result-item .result { flex: none; } }
+
+/* Contact: two columns on desktop only. On small screens the contact card comes first and is prominent. */
+@media (min-width: 992px) {
+  .contact-grid { grid-template-columns: 1.3fr 1fr; }
+  .contact-grid .split__media { aspect-ratio: 1; max-width: 26rem; width: 100%; justify-self: end; }
+}
+@media (max-width: 991px) {
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  .contact-grid .split__media { order: -1; width: 9rem; max-width: 100%; aspect-ratio: 1; border-radius: var(--radius-lg); }
+  .contact-card { padding: var(--space-5); font-size: 1.125rem; }
+  .contact-card .mj-btn { width: 100%; }
+}
+
+/* Logo strip: swipeable, auto drift (src/scripts/marquee.ts) */
+.mj-marquee--manual { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; }
+.mj-marquee--manual::-webkit-scrollbar { display: none; }
+.mj-marquee--manual .mj-marquee__track { animation: none; padding-inline: var(--space-4); }
+.marquee-nav { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-3); }
+.marquee-nav .icon-btn { border: 1px solid var(--border-control); }
+.marquee-logo img { display: block; }
+@media (max-width: 767px) { .marquee-logo { height: 5rem; padding: var(--space-3) var(--space-4); } }
+@media (prefers-reduced-motion: reduce) { .marquee-logo[aria-hidden='true'] { display: none; } .mj-marquee--manual .mj-marquee__track { flex-wrap: nowrap; justify-content: flex-start; } }
+
+/* Intro text must not touch the next band on small screens */
+@media (max-width: 767px) { .page-intro { padding-bottom: var(--space-6); } }
+
+/* Process steps on small screens: small illustration next to the title, text below (instead of four huge images) */
+@media (max-width: 767px) {
+  .mj-process { gap: var(--space-6); }
+  .mj-pstep { display: grid; grid-template-columns: 6rem 1fr; align-items: center; column-gap: var(--space-4); row-gap: var(--space-3); padding-top: var(--space-5); }
+  .mj-pstep .mj-pstep__media { width: 6rem; height: 6rem; grid-column: 1; grid-row: 1; border-radius: var(--radius-md); }
+  .mj-pstep__title { grid-column: 2; grid-row: 1; }
+  .mj-pstep__text { grid-column: 1 / -1; }
+}
+
+/* Tiles: no forced height on small screens, avoids empty space between icon and title */
+@media (max-width: 767px) { .mj-tile { min-height: 0; gap: var(--space-5); padding: var(--space-5); } }
