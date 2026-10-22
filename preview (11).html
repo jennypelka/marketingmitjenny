@@ -1,0 +1,11 @@
+<!-- @dsCard group="Formular" height=620 subtitle="Textfeld, Bereich, Checkbox, Fehler, 48px hoch" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap">
+<style>body{margin:0;padding:24px;background:var(--bg);font-family:var(--font-sans)}form{display:grid;gap:20px;max-width:var(--form-max)}</style>
+<form class="mj" onsubmit="return false" lang="de">
+  <div class="mj-field"><label class="mj-label" for="n">Name</label><input class="mj-input" id="n" placeholder="Vor- und Nachname"></div>
+  <div class="mj-field"><label class="mj-label" for="e">E-Mail</label><input class="mj-input" id="e" type="email" placeholder="name@unternehmen.de"><span class="mj-help">Wir antworten innerhalb von zwei Werktagen.</span></div>
+  <div class="mj-field"><label class="mj-label" for="x">Fehlerzustand</label><input class="mj-input" id="x" value="name@" aria-invalid="true" aria-describedby="xe"><span class="mj-error" id="xe">Bitte geben Sie eine vollständige E-Mail-Adresse ein.</span></div>
+  <div class="mj-field"><label class="mj-label" for="m">Nachricht</label><textarea class="mj-input" id="m" style="min-height:6rem" placeholder="Worum geht es?"></textarea></div>
+  <label class="mj-check"><input type="checkbox" checked> Ich stimme der Datenschutzerklärung zu.</label>
+  <div><button class="mj-btn" type="button">Nachricht senden</button></div>
+</form>

@@ -1,0 +1,50 @@
+{
+  "v": 3,
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "marketingmitjenny-logo.png",
+        "marketingmitjenny-mark.png"
+      ],
+      "files": {
+        "marketingmitjenny-logo.png": {
+          "name": "marketingmitjenny-logo.png",
+          "blob": "6fce51fc4f6aab1e8048280f0bc63ecd",
+          "size": 91422,
+          "type": "image/png"
+        },
+        "marketingmitjenny-mark.png": {
+          "name": "marketingmitjenny-mark.png",
+          "blob": "ee36413b98c02ef244af1b4a76be336e",
+          "size": 57762,
+          "type": "image/png"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-20T17:49:35Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [
+    "Logos"
+  ],
+  "lastChange": {
+    "by": "Max",
+    "at": "2026-10-20T19:00:00Z",
+    "via": "Cowork",
+    "note": "Version 2: aufgeräumt und modernisiert, Dark Mode"
+  },
+  "layout": "files",
+  "libraries": [],
+  "namespace": "MMJ",
+  "sections": {},
+  "title": "Marketing mit Jenny"
+}

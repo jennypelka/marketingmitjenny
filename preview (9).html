@@ -1,0 +1,30 @@
+<!-- @dsCard height=288 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;600&display=swap">
+<style>
+html,body{margin:0}
+.cv{position:relative;width:960px;height:288px;background:var(--bg);overflow:hidden;font-family:var(--font-sans)}
+.cv svg{position:absolute;left:0;top:0;display:block}
+.brand{fill:var(--brand)}.accent{fill:var(--accent)}.wash{fill:var(--wash)}.ink{fill:var(--fg)}.mid{fill:var(--brand-action)}.soft{fill:var(--purple-300)}
+.sq{rx:var(--radius-lg)}
+.cv .txt{position:absolute;left:32px;bottom:32px;max-width:896px}
+.cv h1{margin:0;color:var(--fg);font:700 64px/.95 var(--font-display);letter-spacing:-.035em;white-space:nowrap}
+.cv p{margin:12px 0 0;color:var(--fg-muted);font:400 14px/1.4 var(--font-sans)}
+</style>
+<div class="cv">
+<svg width="960" height="104" viewBox="0 0 960 104" aria-hidden="true">
+<!--
+Blöcke: brand 232×104 mit großer Rundung oben links, accent Kreis ⌀104, wash Pille 200×104, fg-Block 120×104 (radius-lg), brand-action Viertelkreis 104, purple-300 Kreis ⌀104, brand Randstück 48×104.
+Anordnung: Band über die volle Breite am oberen Rand, Blöcke mit space-2 (8px) Abstand, rechts und oben angeschnitten.
+Muster: Kreise, Pillen und Viertelrundungen, weil Buttons, Navigation und Badges der Marke Pillenform haben und das Hero-Bild eine einzige große Rundung oben links trägt (radius-hero).
+Schritte und Radien: space-2 8px; radius-hero auf Bandhöhe skaliert (96px), radius-pill (halbe kurze Seite 52px), radius-lg 1,25rem.
+-->
+<path class="brand" d="M0 104V96A96 96 0 0 1 96 0H232V104Z"/>
+<circle class="accent" cx="292" cy="52" r="52"/>
+<rect class="wash" x="352" y="0" width="200" height="104" rx="52"/>
+<rect class="ink sq" x="560" y="0" width="120" height="104"/>
+<path class="mid" d="M688 104A104 104 0 0 1 792 0V104Z"/>
+<circle class="soft" cx="852" cy="52" r="52"/>
+<rect class="brand" x="912" y="0" width="48" height="104"/>
+</svg>
+<div class="txt"><h1>Marketing mit Jenny</h1><p>Strategisches Social-Media-Marketing für lokale Unternehmen.</p></div>
+</div>
