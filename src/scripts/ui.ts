@@ -32,3 +32,4 @@ document.addEventListener('keydown', (e) => {
   }
 });
 import './anim';
+import './marquee';
