@@ -1,0 +1,63 @@
+/* Central animation system (BRIEFING 3.2). Only transform and opacity. Effects: rise, stagger, mask-reveal,
+   parallax-soft, scale-in, marquee, count-up, progress-line. Everything lives inside the no-preference
+   media query and the hidden start state needs the `js` class, so content is visible without JS or motion. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes anim-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes anim-scale-in { from { opacity: 0; transform: translateX(0) rotate(0deg) scale(0.86); } to { opacity: 1; transform: translateX(var(--fan-x, 0px)) rotate(var(--fan-r, 0deg)) scale(var(--fan-s, 1)); } }
+  @keyframes anim-mask { from { transform: translateY(105%); } to { transform: none; } }
+  @keyframes anim-parallax { from { transform: translateY(30px); } to { transform: translateY(-30px); } }
+  @keyframes anim-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* mask-reveal: h1 lines slide out of a mask on load. Markup: <span class="mask-line"><span>Text</span></span> */
+  html.js [data-anim='mask-reveal'] .mask-line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  html.js [data-anim='mask-reveal'] .mask-line > span { display: block; animation: anim-mask 0.7s var(--ease-out) both; }
+  html.js [data-anim='mask-reveal'] .mask-line:nth-child(2) > span { animation-delay: 60ms; }
+  html.js [data-anim='mask-reveal'] .mask-line:nth-child(3) > span { animation-delay: 120ms; }
+
+  /* Preferred path: scroll-driven animations */
+  @supports (animation-timeline: view()) {
+    html.js [data-anim='rise'],
+    html.js [data-anim='stagger'] > * { animation: anim-rise linear backwards; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    html.js [data-anim='stagger'] > :nth-child(2) { animation-range: entry 6% entry 51%; }
+    html.js [data-anim='stagger'] > :nth-child(3) { animation-range: entry 12% entry 57%; }
+    html.js [data-anim='stagger'] > :nth-child(4) { animation-range: entry 18% entry 63%; }
+    html.js [data-anim='stagger'] > :nth-child(5) { animation-range: entry 24% entry 69%; }
+    html.js [data-anim='stagger'] > :nth-child(n + 6) { animation-range: entry 30% entry 75%; }
+    html.js [data-anim='scale-in'] { animation: anim-scale-in linear backwards; animation-timeline: view(); animation-range: entry 0% entry 60%; --fan-s: 0.92; }
+    html.js .phone--center[data-anim='scale-in'] { --fan-s: 1; }
+    html.js [data-anim='parallax-soft']::before,
+    html.js [data-anim='parallax-soft']::after { animation: anim-parallax linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+    html.js [data-anim='parallax-soft'][data-parallax='self'] { animation: anim-parallax linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+    html.js [data-progress-line] .mj-pstep::after { content: ''; position: absolute; top: -2px; left: 0; width: 100%; height: 2px; background: var(--brand); transform-origin: left; animation: anim-line linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+  }
+
+  /* Fallback: IntersectionObserver adds .anim-io to <html>, .is-in on entry and data-anim-done 1 s later
+     (src/scripts/anim.ts). After `done` no animation rule applies, so hover transforms work again. */
+  html.anim-io [data-anim='rise']:not([data-anim-done]),
+  html.anim-io [data-anim='scale-in']:not([data-anim-done]),
+  html.anim-io [data-anim='stagger']:not([data-anim-done]) > * { opacity: 0; transition: opacity var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out); }
+  html.anim-io [data-anim='rise']:not([data-anim-done]),
+  html.anim-io [data-anim='stagger']:not([data-anim-done]) > * { transform: translateY(16px); }
+  html.anim-io [data-anim='scale-in']:not([data-anim-done]) { transform: translateX(0) rotate(0deg) scale(0.86); }
+  html.anim-io [data-anim='rise'].is-in:not([data-anim-done]),
+  html.anim-io [data-anim='stagger'].is-in:not([data-anim-done]) > * { opacity: 1; transform: none; }
+  html.anim-io [data-anim='scale-in'].is-in:not([data-anim-done]) { opacity: 1; transform: translateX(var(--fan-x, 0px)) rotate(var(--fan-r, 0deg)) scale(var(--fan-s, 0.92)); }
+  html.anim-io [data-anim='stagger'].is-in:not([data-anim-done]) > :nth-child(2) { transition-delay: 60ms; }
+  html.anim-io [data-anim='stagger'].is-in:not([data-anim-done]) > :nth-child(3) { transition-delay: 120ms; }
+  html.anim-io [data-anim='stagger'].is-in:not([data-anim-done]) > :nth-child(4) { transition-delay: 180ms; }
+  html.anim-io [data-anim='stagger'].is-in:not([data-anim-done]) > :nth-child(5) { transition-delay: 240ms; }
+  html.anim-io [data-anim='stagger'].is-in:not([data-anim-done]) > :nth-child(n + 6) { transition-delay: 300ms; }
+  html.anim-io [data-progress-line] .mj-pstep::after { content: ''; position: absolute; top: -2px; left: 0; width: 100%; height: 2px; background: var(--brand); transform: scaleX(0); transform-origin: left; transition: transform 0.8s var(--ease-out); }
+  html.anim-io [data-progress-line].is-in .mj-pstep::after { transform: scaleX(1); }
+
+  /* marquee also pauses on keyboard focus */
+  .mj-marquee:focus-within .mj-marquee__track { animation-play-state: paused; }
+}
+
+/* Reduced motion: no scroll or auto motion, everything visible. Marquee stands still, items wrap. */
+@media (prefers-reduced-motion: reduce) {
+  .mj-marquee__track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; }
+  .mj-marquee__item[aria-hidden='true'] { display: none; }
+  .mj-marquee { -webkit-mask-image: none; mask-image: none; }
+}

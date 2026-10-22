@@ -63,14 +63,15 @@ Das Design System ist verbindlich. Bei Widerspruch zwischen diesem Briefing und 
 | --- | --- |
 | `/` | Startseite |
 | `/ueber-uns` | Über Jenny, Team, Arbeitsweise |
+| `/leistungen` | Die fünf Leistungen (Entscheidung Max, Variante A: Texte wörtlich aus `content/startseite.md`, Sektion 2) |
 | `/referenzen` | Fallstudien, Kundenstimmen |
 | `/kontakt` | Kontaktformular, Erstgespräch buchen |
 | `/impressum`, `/datenschutz` | Rechtstexte (Inhalte von Jenny bzw. Rechtsgenerator, nicht selbst formulieren) |
 | `/404` | Eigene Fehlerseite mit Weiterleitungs-Links |
 
-**Umfang ist fest:** genau diese Seiten. Keine Leistungsseiten, keine FAQ-Seite, kein Blog. Die Leistungen bleiben als Sektion auf der Startseite (Anker `#leistungen`). Alle Slugs sind identisch mit der alten Seite.
+**Umfang ist fest:** genau diese Seiten. Keine einzelnen Leistungsseiten je Leistung, keine FAQ-Seite, kein Blog. Neu gegenüber der alten Seite ist nur `/leistungen` (Entscheidung Max, Variante A): eine Seite mit den fünf Leistungstexten wörtlich aus `content/startseite.md`. Die Sektion `#leistungen` bleibt zusätzlich auf der Startseite. Alle anderen Slugs sind identisch mit der alten Seite.
 
-**Navigation:** Über uns, Referenzen, Kontakt (als Button). „Leistungen“ aus `startseite-neu.html` nur als Anker `/#leistungen`.
+**Navigation:** Leistungen (`/leistungen`), Über uns, Referenzen, Kontakt (als Button).
 
 ---
 

@@ -5,7 +5,7 @@ Inhalte: content/*.md (wörtlich, Reihenfolge der Sektionen verbindlich), Überb
 Optik: design-system/README.md, Klassen in design-system/components/bundle.css, Layout-Referenz reference/startseite-neu.html.
 
 Wichtig:
-- Seiten: /, /ueber-uns, /referenzen, /kontakt, /impressum, /datenschutz, 404. Nichts darüber hinaus.
+- Seiten: /, /leistungen, /ueber-uns, /referenzen, /kontakt, /impressum, /datenschutz, 404. Nichts darüber hinaus.
 - tokens.css existiert nicht: in Phase 1 aus design-system/tokens.json erzeugen.
 - Referenz-HTML und Previews laden Google Fonts, Webflow-CDN und Cloudinary: NICHT übernehmen.
   Schriften selbst hosten, Medien nur aus content/media/. Keine Drittdomains.
@@ -19,3 +19,6 @@ Entscheidungen (Stand Phase 0):
 - URLs ohne Trailing Slash (`build.format: 'file'`, `trailingSlash: 'never'`).
 - Kein Kontaktformular: nur `mailto:`-Link. Keine Statistik. KI-Crawler erlaubt.
 - Keine CMP nötig, solange keine Drittdienste eingebunden sind.
+- /leistungen (Entscheidung Max, Variante A): fünf Leistungstexte wörtlich aus content/startseite.md; Startseite behält Sektion #leistungen.
+- Reels laufen im iPhone-Rahmen (src/assets/iphone-frame.png, Video darunter).
+- Hero-Foto vorerst content/media/ueber-uns-1.jpg.
