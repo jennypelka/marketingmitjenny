@@ -48,6 +48,7 @@ const csp = [
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <slot name="head" />
     <SEO title={title} description={description} path={path} noindex={noindex} />
   </head>
   <body class="mj site">
