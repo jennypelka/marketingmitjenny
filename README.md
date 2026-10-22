@@ -15,7 +15,7 @@ Static Astro site for Marketing mit Jenny. Briefing: `BRIEFING.md`, working rule
 
 ## Deploy (GitHub Pages)
 
-`.github/workflows/deploy.yml` builds and publishes on every push to `main`. In the repo settings set Pages source to "GitHub Actions". See `docs/deploy.md` for domain setup at Strato.
+`.github/workflows/deploy.yml` builds and publishes on every push to `main`. In the repo settings set Pages source to "GitHub Actions". See `docs/anleitung-live-gang.md` for preview and go-live (repository variables `SITE_URL`/`NOINDEX`; a `SITE_URL` with a path, e.g. the github.io project URL, makes `scripts/apply-base.mjs` prefix all URLs).
 
 ## Constraints from the hosting choice
 
