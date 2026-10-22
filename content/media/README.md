@@ -9,7 +9,7 @@ Still missing (the zip held only `.url` shortcuts, no image data):
 
 `unzugeordnet/` holds files not listed in `medien.csv`:
 
-- `phone_035.jpg`: empty phone frame (5000x5000). Source and licence unknown, TODO: confirm before use.
+- `phone_035.jpg`: empty phone frame (5000x5000). Licence confirmed by Max; its transparent version is used as `src/assets/iphone-frame.png`.
 - `logo-marketingmitjenny-eingebettetes-bild.svg`: not a vector logo, it embeds a raster image. A real SVG logo is still missing.
 - A `Foto von mir.png` exists only as a link to the Webflow CDN.
 

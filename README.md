@@ -21,6 +21,22 @@ Static Astro site for Marketing mit Jenny. Briefing: `BRIEFING.md`, working rule
 
 GitHub Pages cannot send custom HTTP headers or 301 redirects. Security headers are set as `<meta>` tags (CSP, referrer); `frame-ancestors`, HSTS (enable "Enforce HTTPS" in Pages) and `Permissions-Policy` are not available.
 
+## Content maintenance
+
+Texts are not in a CMS. They live in the page files and shared modules:
+
+| What | Where |
+| --- | --- |
+| Start page texts, Ablauf, Nutzen, clients | `src/pages/index.astro` |
+| The five services (start page and /leistungen) | `src/lib/leistungen.ts` |
+| Über uns, Referenzen, Kontakt, Impressum, Datenschutz | `src/pages/<page>.astro` |
+| Title, description, last-modified date per page | `src/lib/pages.ts` (update `lastmod` when content changes) |
+| Name, address, phone, e-mail, social links, navigation | `src/lib/site.ts` |
+| Reels | drop `reel-1.mp4` to `reel-4.mp4` into `content/media/`, they are picked up automatically |
+| Open Graph images | `node scripts/build-og.mjs` (needs `playwright`) |
+
+The briefing proposed Markdown content collections so texts can be changed without code. That is not built yet and can be added on request. `content/*.md` stays the verbatim source of truth for texts.
+
 ## Docs
 
 - `docs/datenschutz-inventar.md`: all third-party contacts and the network check

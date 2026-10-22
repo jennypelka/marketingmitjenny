@@ -168,3 +168,10 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .contact-card dd { min-width: 0; }
 @media (max-width: 479px) { .contact-card dl { grid-template-columns: 1fr; gap: 0; } .contact-card dd { margin-bottom: var(--space-3); } }
 .contact-grid > *, .split > * { min-width: 0; }
+
+/* Minimum tap target 44 x 44 px (BRIEFING 3.1) */
+.mj-nav .mj-btn--sm { min-height: 2.75rem; }
+.mj-nav__logo { min-height: 2.75rem; min-width: 2.75rem; }
+.skip-link { min-height: 2.75rem; display: inline-flex; align-items: center; }
+.crumbs a { display: inline-flex; align-items: center; min-height: 2.75rem; min-width: 2.75rem; }
+.crumbs { gap: 0 var(--space-2); align-items: center; }

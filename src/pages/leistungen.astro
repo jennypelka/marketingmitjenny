@@ -12,7 +12,7 @@ import { leistungen } from '../lib/leistungen';
   <PageIntro crumb="Leistungen" crumbHref="/leistungen" eyebrow="Leistungen" title="Was wir machen" />
   <Section id="leistungen-liste">
     <BentoGrid>
-      {leistungen.map((l) => <Tile title={l.title} icon={l.icon} tone={l.tone} span={l.span}>{l.text}</Tile>)}
+      {leistungen.map((l) => <Tile title={l.title} icon={l.icon} tone={l.tone} span={l.span} heading="h2">{l.text}</Tile>)}
     </BentoGrid>
   </Section>
   <CtaBand title="Lassen Sie uns Ihren Auftritt gemeinsam aufbauen." text="Erzählen Sie uns von Ihrem Unternehmen. Im Erstgespräch klären wir Ziele, Zielgruppen und ob die Zusammenarbeit passt." badge="Kostenloses Erstgespräch" />

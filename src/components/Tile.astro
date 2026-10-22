@@ -6,15 +6,17 @@ interface Props {
   icon: 'chart' | 'camera' | 'scissors' | 'chat' | 'report' | 'video';
   tone?: 'subtle' | 'brand' | 'accent' | 'wash';
   span?: 2 | 3 | 4;
+  // h3 below an existing h2 (start page), h2 when the grid directly follows the h1 (/leistungen)
+  heading?: 'h2' | 'h3';
 }
-const { title, icon, tone = 'subtle', span = 2 } = Astro.props;
+const { title, icon, tone = 'subtle', span = 2, heading: Heading = 'h3' } = Astro.props;
 const classes = ['mj-tile', span !== 2 && `mj-tile--w${span}`, tone !== 'subtle' && `mj-tile--${tone}`].filter(Boolean);
 ---
 
 <article class:list={classes}>
   <div class="mj-tile__icon"><Icon name={icon} /></div>
   <div class="mj-tile__body">
-    <h3 class="mj-tile__title">{title}</h3>
+    <Heading class="mj-tile__title">{title}</Heading>
     <p class="mj-tile__text"><slot /></p>
   </div>
 </article>
