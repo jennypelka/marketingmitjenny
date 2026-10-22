@@ -139,15 +139,28 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 @media (max-width: 767px) { .reels--js { --step: calc(var(--phone-width) * 0.78); } }
 @media (prefers-reduced-motion: reduce) { .reels--js .reel-slide, .reels-dot span { transition: none; } }
 
-/* Benefits: weight tiers keep the order and size of the old word cloud */
-.benefits { display: flex; flex-wrap: wrap; gap: var(--space-3); margin: var(--space-7) 0 0; padding: 0; list-style: none; }
-.benefit { padding: 0.5em 1.1em; border-radius: var(--radius-pill); font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; background: var(--surface); border: 1px solid var(--border); color: var(--fg); }
-.benefit--1 { font-size: clamp(1.75rem, 4.4vw, 3.25rem); background: var(--grad-brand); color: var(--white); border-color: transparent; }
-.benefit--2 { font-size: clamp(1.5rem, 3.4vw, 2.5rem); background: var(--accent); color: var(--accent-fg); border-color: transparent; }
-.benefit--3 { font-size: clamp(1.25rem, 2.8vw, 2rem); background: var(--wash); color: var(--wash-fg); border-color: transparent; }
-.benefit--4 { font-size: clamp(1.125rem, 2.2vw, 1.5rem); }
-.benefit--5 { font-size: clamp(1.0625rem, 1.9vw, 1.3125rem); }
-.benefit--6 { font-size: clamp(1rem, 1.7vw, 1.1875rem); }
+/* Benefits: dark band with three counter-running typographic strips (design proposal B).
+   Order and wording of the old word cloud stay; the strips only change the presentation. */
+.benefits-band { position: relative; overflow: hidden; isolation: isolate; background: var(--bg); color: var(--fg); }
+.benefits-band::before, .benefits-band::after { content: ''; position: absolute; z-index: -1; border-radius: var(--radius-circle); pointer-events: none; }
+.benefits-band::before { left: -14rem; bottom: -22rem; width: 56rem; aspect-ratio: 1; background: radial-gradient(closest-side, color-mix(in srgb, var(--purple-600) 38%, transparent), transparent); }
+.benefits-band::after { right: -16rem; top: -18rem; width: 48rem; aspect-ratio: 1; background: radial-gradient(closest-side, color-mix(in srgb, var(--peach-300) 22%, transparent), transparent); }
+.benefit-bands { display: flex; flex-direction: column; gap: clamp(1rem, 2.4vw, 1.875rem); margin-top: var(--space-7); }
+.benefit-band { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 7%, black 93%, transparent); mask-image: linear-gradient(90deg, transparent, black 7%, black 93%, transparent); }
+.benefit-track { display: flex; align-items: center; width: max-content; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; }
+.benefit-track li { display: inline-flex; align-items: center; gap: clamp(1.5rem, 3.4vw, 2.75rem); padding-right: clamp(1.5rem, 3.4vw, 2.75rem); white-space: nowrap; }
+.benefit-track li::after { content: ''; flex: none; width: 0.2em; height: 0.2em; border-radius: var(--radius-circle); background: var(--accent); }
+.benefit-band--a .benefit-track { font-size: clamp(2.5rem, 8vw, 6.5rem); color: var(--fg); animation: benefit-left 44s linear infinite; }
+.benefit-band--b .benefit-track { font-size: clamp(2.5rem, 8vw, 6.5rem); color: var(--bg); text-shadow: 0.022em 0 var(--fg), -0.022em 0 var(--fg), 0 0.022em var(--fg), 0 -0.022em var(--fg), 0.016em 0.016em var(--fg), -0.016em -0.016em var(--fg), 0.016em -0.016em var(--fg), -0.016em 0.016em var(--fg); animation: benefit-right 52s linear infinite; /* outline via shadows: -webkit-text-stroke shows the overlapping contours of the variable font */ }
+.benefit-band--c .benefit-track { font-size: clamp(1.75rem, 5vw, 4rem); color: var(--accent); animation: benefit-left 56s linear infinite; }
+.benefit-band:hover .benefit-track { animation-play-state: paused; }
+@keyframes benefit-left { to { transform: translateX(-50%); } }
+@keyframes benefit-right { from { transform: translateX(-50%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .benefit-band { -webkit-mask-image: none; mask-image: none; }
+  .benefit-track { animation: none !important; width: auto; flex-wrap: wrap; justify-content: center; row-gap: 0.1em; padding-inline: var(--gutter); }
+  .benefit-track li[aria-hidden='true'] { display: none; }
+}
 
 /* Hero image: portrait crop */
 .mj-hero__media img { object-position: 50% 20%; }

@@ -52,19 +52,12 @@ const results = [
   { image: m4, alt: 'Instagram-Beitrag mit 185 Tsd. Aufrufen und 1.001 Likes, ohne Werbeanzeigen', facts: ['Reichweite 180 Tsd.+', '1.000+ Likes', 'Ohne Ads'] },
 ];
 
-// Order and weights from the old word cloud (content/startseite.md, section 6)
-const benefits = [
-  ['Mehr Kundenanfragen', 1],
-  ['Höhere Sichtbarkeit', 2],
-  ['Stärkeres Image', 3],
-  ['Mehr Vertrauen', 4],
-  ['Messbare Ergebnisse', 4],
-  ['Engere Kundenbindung', 4],
-  ['Vorsprung vor Wettbewerbern', 5],
-  ['Einfacheres Recruiting', 5],
-  ['Potenzial für virale Posts', 6],
-  ['Zukunftssicherheit', 6],
-] as const;
+// The ten benefits of the old word cloud, same order, split into three bands (content/startseite.md, section 6)
+const benefitBands = [
+  { id: 'a', items: ['Mehr Kundenanfragen', 'Höhere Sichtbarkeit', 'Stärkeres Image'] },
+  { id: 'b', items: ['Mehr Vertrauen', 'Messbare Ergebnisse', 'Engere Kundenbindung'] },
+  { id: 'c', items: ['Vorsprung vor Wettbewerbern', 'Einfacheres Recruiting', 'Potenzial für virale Posts', 'Zukunftssicherheit'] },
+];
 
 // TODO: Nutzungsfreigabe der Kundenlogos durch die Kunden bestätigen (Jenny)
 const clients = [
@@ -141,11 +134,25 @@ const clients = [
     </div>
   </Section>
 
-  <Section id="nutzen" eyebrow="Ihr Nutzen" title="Warum jedes Unternehmen einen einzigartigen Social-Media-Auftritt haben sollte">
-    <ul class="benefits" data-anim="stagger">
-      {benefits.map(([text, tier]) => <li class={`benefit benefit--${tier}`}>{text}</li>)}
-    </ul>
-  </Section>
+  <section class="mj-section benefits-band" id="nutzen" data-theme="dark" aria-labelledby="nutzen-title">
+    <div class="mj-wrap">
+      <div class="mj-head" data-anim="rise">
+        <p class="mj-eyebrow">Ihr Nutzen</p>
+        <h2 class="mj-h2" id="nutzen-title">Warum jedes Unternehmen einen einzigartigen Social-Media-Auftritt haben sollte</h2>
+      </div>
+    </div>
+    <div class="benefit-bands">
+      {benefitBands.map((band) => (
+        <div class={`benefit-band benefit-band--${band.id}`}>
+          <ul class="benefit-track">
+            {[false, true].map((hidden) =>
+              band.items.map((text) => <li aria-hidden={hidden || undefined}>{text}</li>),
+            )}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
 
   <Section id="kunden" eyebrow="Kunden" title="Wem wir bereits helfen konnten" subtle>
     <Marquee label="Unsere Kunden" items={clients} />
