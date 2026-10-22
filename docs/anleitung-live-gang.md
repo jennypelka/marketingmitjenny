@@ -2,7 +2,22 @@
 
 Für Max. Alles passiert im Browser, nichts muss lokal installiert werden. Die Menünamen bei GitHub und Strato ändern sich gelegentlich. Wenn ein Punkt anders heißt, nehmen Sie den sinngemäß passenden.
 
-**Wichtig vorab:** GitHub Pages zeigt die Seite unter `https://jennypelka.github.io/marketingmitjenny/` an. Dort sieht sie kaputt aus (kein Design, Bilder fehlen), weil die Seite für eine eigene Domain gebaut ist und alle Pfade bei `/` beginnen. Deshalb nutzen wir für die **Vorschau eine Unterdomain** `vorschau.marketingmitjenny.de`. Sie ist für Suchmaschinen gesperrt und ändert nichts an Ihrer aktuellen Live-Seite.
+## Schnellvorschau ohne Strato (empfohlen als erster Schritt)
+
+Sie sehen die Seite sofort unter `https://jennypelka.github.io/marketingmitjenny/`. Der Build schreibt dafür alle Pfade passend um, die Seite ist für Suchmaschinen gesperrt.
+
+1. GitHub, **Settings**, **Pages**: Bei **Source** muss **GitHub Actions** stehen (nicht „Deploy from a branch“).
+2. **Settings**, **Secrets and variables**, **Actions**, Reiter **Variables**: Legen Sie diese zwei Variablen an. Gibt es `SITE_URL` schon, klicken Sie auf den Stift und ändern den Wert.
+   - `SITE_URL` = `https://jennypelka.github.io/marketingmitjenny`
+   - `NOINDEX` = `true`
+3. **Actions**, links **Deploy to GitHub Pages**, rechts **Run workflow**, **Run workflow**. Warten, bis ein grünes Häkchen erscheint (1 bis 3 Minuten).
+4. Adresse öffnen und hart neu laden (Strg+Umschalt+R, am Handy im privaten Tab).
+
+Weitere Änderungen an der Seite erscheinen nach jedem Merge nach `main` automatisch (Reiter **Actions** zeigt den Lauf).
+
+Für den Livegang gibt es danach zwei Wege: direkt auf die Hauptdomain (Teil E) oder zuerst eine Vorschau-Unterdomain (Teile A bis C). Die Unterdomain ist nur nötig, wenn Sie die Seite unter einer eigenen Adresse zeigen wollen, zum Beispiel Jenny.
+
+---
 
 Gesamtablauf:
 

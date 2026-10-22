@@ -8,7 +8,7 @@
     "predev": "npm run tokens",
     "dev": "astro dev",
     "prebuild": "npm run tokens",
-    "build": "astro build && node scripts/check-build.mjs",
+    "build": "astro build && node scripts/check-build.mjs && node scripts/apply-base.mjs",
     "preview": "astro preview"
   },
   "devDependencies": {
