@@ -28,6 +28,8 @@
 - [ ] Nach dem Livegang: JSON-LD im Schema.org-Validator und Rich-Results-Test prüfen, Lighthouse auf der echten Domain messen.
 - [ ] Monatlich `docs/aeo-testprompts.md` abarbeiten.
 
+- [ ] `/leistungen`: Entwurfstexte (Einleitung, „Das gehört dazu“, „Im Ablauf“, FAQ) von Jenny freigeben lassen, Quellen in `content/leistungen.md`. Preis-Orientierung ergänzen, sobald Jenny sie nennt.
+
 ## Beim Rendern der Seite entschieden, bitte bestätigen
 
 - [ ] Nicht aus `content/`, sondern aus der Referenz übernommen: kleine Kategorie-Labels (Eyebrows) und der Text des CTA-Bands.

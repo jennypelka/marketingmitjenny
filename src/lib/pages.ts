@@ -18,7 +18,7 @@ export const pages = {
     title: 'Social-Media-Marketing für lokale Unternehmen | Jenny',
     description:
       'Strategisches Social-Media-Marketing für lokale Unternehmen: Content-Erstellung, Community Management und Reporting. Jetzt kostenloses Erstgespräch!',
-    lastmod: '2026-10-22',
+    lastmod: '2026-10-23',
     ogImage: '/og/start.png',
   },
   leistungen: {
@@ -27,7 +27,7 @@ export const pages = {
     title: 'Social-Media-Leistungen | Marketing mit Jenny',
     description:
       'Social-Media-Strategie, Content-Erstellung, Schnitt und Upload, Community Management und Reporting für lokale Unternehmen. Jetzt Erstgespräch anfragen!',
-    lastmod: '2026-10-22',
+    lastmod: '2026-10-23',
     ogImage: '/og/leistungen.png',
   },
   ueberUns: {

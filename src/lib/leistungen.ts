@@ -1,7 +1,12 @@
-// The five services, verbatim from content/startseite.md section 2. Used on / and /leistungen.
+// The five services. `text` is verbatim from content/startseite.md section 2 (used on / and /leistungen).
+// `points` and `rhythm` only restate facts that already appear in the text, the process steps or the about page
+// (source table in content/leistungen.md). Draft for Jenny's approval.
 export const leistungen = [
   {
     title: 'Social Media Strategie',
+    id: 'strategie',
+    points: ['Positionierung, Ziele und Zielgruppen', 'Passende Kanäle', 'Formatarchitektur, Tonalität und Postingfrequenz', 'Content- bzw. Drehplan mit Szenen, Hooks und Verantwortlichkeiten'],
+    rhythm: 'Im Ablauf: Auf Basis des Onboardings entsteht die Strategie als kompaktes Dokument, direkt danach der Drehplan, kombiniert aus unseren Vorschlägen und, falls gewünscht, Ihren Ideen.',
     icon: 'chart',
     tone: 'brand',
     span: 4,
@@ -9,6 +14,9 @@ export const leistungen = [
   },
   {
     title: 'Content Erstellung',
+    id: 'content',
+    points: ['Dreh vor Ort in Ihrem Unternehmen', 'Equipment bringen wir mit', 'Schwerpunkt auf Kurzvideos', 'CI-konforme Templates, Thumbnails und geeignete Animationen für ergänzende Formate'],
+    rhythm: 'Im Ablauf: Etwa alle zwei Monate produzieren wir bei Ihnen vor Ort Content.',
     icon: 'camera',
     tone: 'subtle',
     span: 2,
@@ -16,6 +24,9 @@ export const leistungen = [
   },
   {
     title: 'Schnitt, Bearbeitung & Upload',
+    id: 'schnitt',
+    points: ['Saubere Übergänge und Untertitel', 'Effekte und Stil nach aktuellen Social-Media-Trends und Plattformformaten', 'Upload für jede Plattform', 'Beschreibung, Hashtags und Timing'],
+    rhythm: 'Im Ablauf: Nach dem Dreh schneiden wir die Videos. Die finalen Dateien sind für die jeweilige Plattform optimiert.',
     icon: 'scissors',
     tone: 'accent',
     span: 2,
@@ -23,6 +34,9 @@ export const leistungen = [
   },
   {
     title: 'Community Management',
+    id: 'community',
+    points: ['Nachrichten und Kommentare zeitnah und konsistent beantworten', 'Proaktiv über die eigenen Posts hinaus interagieren', 'Ausgewählten, relevanten Accounts strategisch folgen'],
+    rhythm: 'Im Ablauf: Die Freigabe der Inhalte erfolgt wöchentlich per kurzem Meeting oder per Chat, danach posten wir plattformgerecht.',
     icon: 'chat',
     tone: 'wash',
     span: 2,
@@ -30,6 +44,9 @@ export const leistungen = [
   },
   {
     title: 'Reporting',
+    id: 'reporting',
+    points: ['Monatliches Reporting mit den wichtigsten Kennzahlen', 'Klare Insights und konkrete Handlungsempfehlungen', 'Sichtbar, welche Formate funktionieren, wo Reichweite entsteht und was angepasst wird'],
+    rhythm: 'Im Ablauf: Auf Basis des monatlichen Reportings erfolgt die Optimierung der Inhalte.',
     icon: 'report',
     tone: 'subtle',
     span: 2,

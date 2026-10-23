@@ -11,6 +11,8 @@ Grundlage: gebauter Stand der Seite (`dist/`, Main nach Pull Request 9), automat
 - Bilder mit Alt, festen Maßen und AVIF/WebP-Ersatz (WebP); Lighthouse mobil 96 bis 100 in allen vier Kategorien.
 - Alle Seiten verlinken sich über Navigation und Footer gegenseitig (jede Seite hat 8 interne Verweise).
 
+> **Update 23.10.2026:** H2 ist umgesetzt. `/leistungen` hat jetzt etwa 750 statt 220 Wörter, mit FAQ und `FAQPage`; 16 von 44 Sätzen (vorher 17 von 19) stimmen noch mit der Startseite überein. Der Startseite fehlt noch ein Ortsbezug (H1).
+
 ## 2. Befunde nach Priorität
 
 ### Hoch

@@ -1,5 +1,6 @@
 import { site } from './site';
 import { leistungen } from './leistungen';
+import { faq } from './faq';
 import { pages, type PageKey } from './pages';
 
 const id = {
@@ -87,6 +88,14 @@ export function buildSchema(key: PageKey) {
         url,
       });
     }
+  }
+
+  if (key === 'leistungen') {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    });
   }
 
   return { '@context': 'https://schema.org', '@graph': graph };
