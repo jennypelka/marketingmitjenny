@@ -22,6 +22,17 @@ import { site } from '../lib/site';
           </div>
         </div>
         <div class="mj-footer__cols">
+          <div class="mj-footer__col mj-footer__contact">
+            <h2 class="mj-footer__heading">Kontakt</h2>
+            <address>
+              <strong>{site.person}</strong><br />
+              Social Media Agentur<br />
+              {site.address.street}<br />
+              {site.address.zip} {site.address.city}
+            </address>
+            <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
           <nav class="mj-footer__col" aria-label="Seiten">
             <h2 class="mj-footer__heading">Seiten</h2>
             <a href="/leistungen">Leistungen</a>

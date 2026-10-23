@@ -303,3 +303,7 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 @media (max-width: 991px) { .service { grid-template-columns: 1fr; gap: var(--space-5); } }
 
 .section-more { margin: var(--space-6) 0 0; }
+
+/* Footer contact block (name, address, phone: same data as impressum and kontakt) */
+.mj-footer__contact address { margin: 0; font: 400 1rem/1.55 var(--font-sans); font-style: normal; color: var(--fg-soft); }
+.mj-footer__contact address strong { color: var(--fg); }

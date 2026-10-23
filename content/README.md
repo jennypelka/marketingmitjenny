@@ -16,7 +16,7 @@ und `reference/startseite-neu.html`.
 | medien.csv + medien-laden.sh | – | 20 Bilder, 4 Videos → `content/media/` |
 
 Navigation: Über uns, Referenzen, Kontakt (Button). Optional „Leistungen“ als Anker `/#leistungen`.
-Footer: Logo, Impressum, Datenschutz, Kontakt, Instagram, LinkedIn, ©-Zeile.
+Footer: Logo, Name, Adresse und Telefon (NAP, Entscheidung Max 23.10.2026), Impressum, Datenschutz, Kontakt, Instagram, LinkedIn, ©-Zeile.
 
 - Instagram: https://www.instagram.com/marketingmitjenny/
 - LinkedIn: https://www.linkedin.com/in/jennifer-pelka-a216b6237/

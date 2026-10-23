@@ -15,9 +15,9 @@ export const pages = {
   home: {
     path: '/',
     name: 'Startseite',
-    title: 'Social-Media-Marketing für lokale Unternehmen | Jenny',
+    title: 'Social-Media-Marketing Geretsried | Marketing mit Jenny',
     description:
-      'Strategisches Social-Media-Marketing für lokale Unternehmen: Content-Erstellung, Community Management und Reporting. Jetzt kostenloses Erstgespräch!',
+      'Social-Media-Agentur aus Geretsried: Strategisches Social-Media-Marketing für lokale Unternehmen mit Content-Erstellung, Community Management, Reporting.',
     lastmod: '2026-10-23',
     ogImage: '/og/start.png',
   },
