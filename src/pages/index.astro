@@ -91,6 +91,7 @@ const clients = [
     <BentoGrid>
       {leistungen.map((l) => <Tile title={l.title} icon={l.icon} tone={l.tone} span={l.span}>{l.text}</Tile>)}
     </BentoGrid>
+    <p class="section-more"><a class="mj-link" href="/leistungen">Alle Leistungen im Detail</a></p>
   </Section>
 
   <Section id="ablauf" eyebrow="Zusammenarbeit" title="Wie die Zusammenarbeit abläuft" subtle>
@@ -106,6 +107,7 @@ const clients = [
         </li>
       ))}
     </ul>
+    <p class="section-more"><a class="mj-link" href="/referenzen">Alle Referenzen ansehen</a></p>
   </Section>
 
   <Section id="reels" eyebrow="Reels" title="Was wir bereits umgesetzt haben" subtle>

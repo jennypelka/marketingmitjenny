@@ -1,5 +1,6 @@
 import { site } from './site';
 import { leistungen } from './leistungen';
+import { faq } from './faq';
 import { pages, type PageKey } from './pages';
 
 const id = {
@@ -20,6 +21,7 @@ export function buildSchema(key: PageKey) {
       name: site.name,
       url: site.url,
       logo: { '@type': 'ImageObject', url: `${site.url}/logo.png`, width: 494, height: 350 },
+      image: `${site.url}/jennifer-pelka.jpg`,
       description: `${site.tagline}.`,
       telephone: site.phone,
       email: site.email,
@@ -48,6 +50,7 @@ export function buildSchema(key: PageKey) {
       '@id': id.person,
       name: site.person,
       jobTitle: 'Gründerin',
+      image: `${site.url}/jennifer-pelka.jpg`,
       worksFor: { '@id': id.org },
       sameAs: [site.linkedin],
     },
@@ -87,6 +90,14 @@ export function buildSchema(key: PageKey) {
         url,
       });
     }
+  }
+
+  if (key === 'leistungen') {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    });
   }
 
   return { '@context': 'https://schema.org', '@graph': graph };
