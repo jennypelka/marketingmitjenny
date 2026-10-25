@@ -12,8 +12,7 @@ import Marquee from '../components/Marquee.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { leistungen } from '../lib/leistungen';
 
-// TODO: hero-jennifer-pelka.jpg is not delivered yet, ueber-uns-1.jpg is the stand-in (Max, Phase 4)
-import hero from '../../content/media/ueber-uns-1.jpg';
+import hero from '../../content/media/jenny-hero.jpg';
 import z1 from '../../content/media/zusammenarbeit-1.png';
 import z2 from '../../content/media/zusammenarbeit-2.png';
 import z3 from '../../content/media/zusammenarbeit-3.png';
@@ -27,6 +26,8 @@ import fercak from '../assets/clients/roberto-fercak.png';
 import oberhauser from '../assets/clients/oberhauser.png';
 import frinopharm from '../assets/clients/frinopharm.png';
 import leirich from '../assets/clients/fahrschule-leirich.png';
+import kolberbraeu from '../assets/clients/kolberbraeu.png';
+import altwirt from '../assets/clients/altwirt-reichersbeuern.png';
 
 // Reels are picked up automatically once content/media/reel-1.mp4 ... reel-4.mp4 exist.
 const reelFiles = import.meta.glob('../../content/media/reel-*.mp4', { query: '?url', import: 'default', eager: true }) as Record<string, string>;
@@ -66,6 +67,9 @@ const clients = [
   { label: 'Oberhauser', image: oberhauser },
   { label: 'Frinopharm', image: frinopharm },
   { label: 'Fahrschule Leirich', image: leirich },
+  // Kolberbräu links to its own site; Altwirt Reichersbeuern is deliberately not linked (site currently hacked, Jenny 25.10.2026)
+  { label: 'Posthotel Kolberbräu', image: kolberbraeu, href: 'https://www.kolberbraeu.de/' },
+  { label: 'Landgasthaus zum Altwirt Reichersbeuern', image: altwirt },
 ];
 ---
 
@@ -82,7 +86,7 @@ const clients = [
         </div>
       </div>
       <div class="mj-hero__media" data-anim="parallax-soft" data-parallax="self">
-        <Image src={hero} alt="Jennifer Pelka" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="eager" fetchpriority="high" />
+        <Image src={hero} alt="Jennifer Pelka lächelt in die Kamera, die Arme verschränkt" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="eager" fetchpriority="high" />
       </div>
     </div>
   </section>

@@ -5,7 +5,7 @@ import type { ImageMetadata } from 'astro';
 // Endless strip. Items are rendered twice (second set aria-hidden) for the seamless loop.
 // Logo items switch to a scrollable strip: it drifts on its own (src/scripts/marquee.ts) and can be swiped,
 // dragged, scrolled with the keyboard or moved with the arrow buttons.
-type Item = string | { label: string; image: ImageMetadata };
+type Item = string | { label: string; image: ImageMetadata; href?: string };
 interface Props {
   items: Item[];
   label: string;
@@ -21,9 +21,15 @@ const manual = items.some((item) => typeof item !== 'string');
         typeof item === 'string' ? (
           <span class="mj-marquee__item" aria-hidden={hidden || undefined}>{item}</span>
         ) : (
-          <span class="marquee-logo" aria-hidden={hidden || undefined}>
-            <Image src={item.image} alt={hidden ? '' : item.label} height={96} loading="eager" decoding="async" />
-          </span>
+          item.href ? (
+            <a class="marquee-logo" href={item.href} target="_blank" rel="noopener" draggable="false" aria-hidden={hidden || undefined} tabindex={hidden ? -1 : undefined} aria-label={hidden ? undefined : `${item.label} (öffnet in neuem Tab)`}>
+              <Image src={item.image} alt={hidden ? '' : item.label} height={96} loading="eager" decoding="async" />
+            </a>
+          ) : (
+            <span class="marquee-logo" aria-hidden={hidden || undefined}>
+              <Image src={item.image} alt={hidden ? '' : item.label} height={96} loading="eager" decoding="async" />
+            </span>
+          )
         ),
       ),
     )}

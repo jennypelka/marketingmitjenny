@@ -37,3 +37,14 @@
 - [ ] Title der Startseite bleibt wie auf der alten Seite (53 Zeichen).
 - [ ] Antwort-zuerst-Absätze (AEO) und FAQ sind nicht umgesetzt, weil sie neuen Text bräuchten.
 - [ ] Texte liegen in Seitendateien, Content Collections (Briefing §2) sind nicht gebaut.
+
+## Feedback vom 25.10.2026 (Jenny)
+
+- [ ] Reels: „alle ersetzen mit den neuen“. Die neuen Videos wurden nicht mitgeschickt (in den Uploads liegen nur die vier bekannten). Bitte als `reel-1.mp4` … hochladen.
+- [ ] Kundenstimme Altwirt Reichersbeuern ist eingebaut, aber ausgeblendet (`altwirtApproved = false` in `src/pages/referenzen.astro`), bis der Kunde sie freigibt.
+- [ ] Altwirt-Logo nicht verlinkt (Seite derzeit gehackt). Wieder prüfen, ob eine Verlinkung möglich ist.
+- [ ] Kolberbräu verlinkt auf https://www.kolberbraeu.de/ (aus Websuche übernommen), bitte bestätigen.
+- [ ] Nutzungsfreigabe beider neuer Logos bestätigen.
+- [ ] Leonie: Nachname und Freigabe für Foto/Text auf der Website; optional eigene Team-Seite statt Abschnitt auf /ueber-uns.
+- [ ] Abschnitt „Arbeitsweise“ auf /ueber-uns entfällt (ersetzt durch „Über Leonie“). Text bei Bedarf an anderer Stelle weiterverwenden.
+- [ ] Impressum: Header-Block (marketingmitjenny - Social Media Agentur, Jennifer Laetitia Pelka) übernommen. DSA-Nummer 2022/265 weiterhin im Generator prüfen.

@@ -4,9 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
 import CtaBand from '../components/CtaBand.astro';
-// ueber-uns-2.jpg is a derived crop of ueber-uns-1.jpg (Max: use what exists)
 import jenny from '../../content/media/ueber-uns-1.jpg';
-import detail from '../../content/media/ueber-uns-2.jpg';
+import leonie from '../../content/media/leonie.jpg';
 ---
 
 <BaseLayout page="ueberUns">
@@ -27,15 +26,15 @@ import detail from '../../content/media/ueber-uns-2.jpg';
     </div>
   </Section>
 
-  <Section id="arbeitsweise">
+  <Section id="leonie">
     <div class="split split--reverse">
       <div class="mj-stack" data-anim="rise">
-        <p class="mj-eyebrow">So arbeiten wir</p>
-        <h2 class="mj-h2">Arbeitsweise</h2>
-        <p class="mj-text">Unsere Stärke liegt im Kreativen: Menschen vor der Kamera begleiten, Geschichten in Reels verwandeln und daraus echte Reichweite formen. Die Nähe zu Unternehmen aus der Region prägt unsere Arbeit mit kurzen Wegen, klaren Absprachen und verlässlichen Abläufen. Jede Zusammenarbeit startet mit einem strukturierten Plan und liefert Learnings, die in den nächsten Zyklus einfließen.</p>
+        <p class="mj-eyebrow">Videografin</p>
+        <h2 class="mj-h2">Über Leonie</h2>
+        <p class="mj-text">Als Videografin unterstützt sie die Agentur bei der professionellen Content-Produktion. Sie begleitet unsere Kunden direkt vor Ort, setzt kreative Videoideen um und hält besondere Momente authentisch fest. Mit ihrem Gespür für Perspektiven, Licht und Details entstehen hochwertige Videos, die Unternehmen von ihrer besten Seite zeigen und für einen modernen, professionellen Social-Media-Auftritt sorgen.</p>
       </div>
       <div class="split__media" data-anim="rise">
-        <Image src={detail} alt="Jennifer Pelka hält einen Laptop im Arm" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="lazy" />
+        <Image src={leonie} alt="Leonie, Videografin, lächelt in die Kamera" width={640} height={800} widths={[480, 640, 960]} sizes="(max-width: 991px) 100vw, 40vw" loading="lazy" />
       </div>
     </div>
   </Section>

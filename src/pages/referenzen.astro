@@ -1,14 +1,19 @@
 ---
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Section from '../components/Section.astro';
 import CtaBand from '../components/CtaBand.astro';
 import leirich from '../../content/media/testimonial-fahrschule-leirich.jpg';
 import oberhauser from '../../content/media/testimonial-oberhauser.png';
+import altwirt from '../assets/clients/altwirt-reichersbeuern.png';
+
+// Altwirt quote is not approved by the customer yet (Jenny, 25.10.2026): flip to true once released.
+const altwirtApproved = false;
 
 // Visible text only. No Review/AggregateRating markup (see content/referenzen.md).
-const quotes = [
+const quotes: { name: string; logo: ImageMetadata; alt: string; text: string; show?: boolean }[] = [
   {
     name: 'Fahrschule Leirich',
     logo: leirich,
@@ -21,7 +26,14 @@ const quotes = [
     alt: 'Logo Metzgerei Gasthof Oberhauser – Hotel zur Post',
     text: 'Wir sind seit Anfang des Jahres Kunden und sind sehr zufrieden mit der Zusammenarbeit. Vielen Dank, weiter so!',
   },
-];
+  {
+    name: 'Landgasthaus zum Altwirt Reichersbeuern',
+    logo: altwirt,
+    alt: 'Logo Landgasthaus zum Altwirt',
+    show: altwirtApproved,
+    text: 'Ich kann die Zusammenarbeit mit unserer Social-Media-Agentin von Herzen weiterempfehlen. Seit rund fünf Monaten betreut sie unseren Social-Media-Kanal mit viel Engagement, Kreativität und einem tollen Gespür für Inhalte. Sie arbeitet zuverlässig, bringt eigene Ideen ein und setzt diese professionell um. Die Kommunikation ist immer unkompliziert, schnell und angenehm. Dank ihrer Unterstützung ist unser Auftritt auf Social Media deutlich strukturierter und hochwertiger geworden. Wir sind mit ihrer Arbeit sehr zufrieden und freuen uns auf die weitere Zusammenarbeit. Vielen Dank für den großartigen Einsatz – absolute Empfehlung!',
+  },
+].filter((q) => q.show !== false);
 ---
 
 <BaseLayout page="referenzen">

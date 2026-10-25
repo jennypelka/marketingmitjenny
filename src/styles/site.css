@@ -307,3 +307,9 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 /* Footer contact block (name, address, phone: same data as impressum and kontakt) */
 .mj-footer__contact address { margin: 0; font: 400 1rem/1.55 var(--font-sans); font-style: normal; color: var(--fg-soft); }
 .mj-footer__contact address strong { color: var(--fg); }
+
+/* Tiles: icon and title always start at the top, so headings line up across a row (Jenny's feedback); all tiles peach with purple icon */
+.mj-tile { justify-content: flex-start; }
+.mj-tile--accent .mj-tile__icon { background: var(--white); color: var(--brand-text); }
+a.marquee-logo { text-decoration: none; transition: transform var(--dur-2) var(--ease-out); }
+a.marquee-logo:hover { transform: translateY(-2px); }

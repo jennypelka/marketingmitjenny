@@ -23,11 +23,13 @@ Die Agentur wurde von Jenny gegründet und wird von ihr geführt. Sie verantwort
 
 Bild: ueber-uns-1.jpg (alt „Rest 2.jpg“). TODO: Alt-Text von Jenny (wer/was ist zu sehen).
 
-## 3. Arbeitsweise
+## 3. Über Leonie (Videografin)
 
-Unsere Stärke liegt im Kreativen: Menschen vor der Kamera begleiten, Geschichten in Reels verwandeln und daraus echte Reichweite formen. Die Nähe zu Unternehmen aus der Region prägt unsere Arbeit mit kurzen Wegen, klaren Absprachen und verlässlichen Abläufen. Jede Zusammenarbeit startet mit einem strukturierten Plan und liefert Learnings, die in den nächsten Zyklus einfließen.
+<!-- Ersetzt den bisherigen Abschnitt „Arbeitsweise“ (Jenny, Feedback 25.10.2026). -->
 
-Bild: ueber-uns-2.jpg (alt „Seite Über Uns.jpg“). TODO: Alt-Text von Jenny.
+Als Videografin unterstützt sie die Agentur bei der professionellen Content-Produktion. Sie begleitet unsere Kunden direkt vor Ort, setzt kreative Videoideen um und hält besondere Momente authentisch fest. Mit ihrem Gespür für Perspektiven, Licht und Details entstehen hochwertige Videos, die Unternehmen von ihrer besten Seite zeigen und für einen modernen, professionellen Social-Media-Auftritt sorgen.
+
+Bild: leonie.jpg. TODO: Nachname von Leonie, Alt-Text bestätigen.
 
 ## 4. CTA-Band
 

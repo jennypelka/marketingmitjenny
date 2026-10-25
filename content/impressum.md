@@ -8,8 +8,8 @@ noindex: nach Absprache
 
 # Impressum
 
-Jennifer Pelka
-Social Media Agentur
+marketingmitjenny - Social Media Agentur
+Jennifer Laetitia Pelka
 Händelstraße 19
 82538 Geretsried
 
