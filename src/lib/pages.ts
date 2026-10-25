@@ -62,8 +62,8 @@ export const pages = {
     name: 'Impressum',
     title: 'Impressum | Marketing mit Jenny',
     description:
-      'Impressum von Marketing mit Jenny: Jennifer Pelka, Social Media Agentur, Händelstraße 19, 82538 Geretsried. Kontakt und Pflichtangaben im Überblick.',
-    lastmod: '2026-10-22',
+      'Impressum von marketingmitjenny - Social Media Agentur, Jennifer Laetitia Pelka, Händelstraße 19, 82538 Geretsried. Kontakt und Pflichtangaben im Überblick',
+    lastmod: '2026-10-25',
     ogImage: '/og/start.png',
   },
   datenschutz: {
