@@ -15,106 +15,24 @@ Sie sehen die Seite sofort unter `https://jennypelka.github.io/marketingmitjenny
 
 Weitere Änderungen an der Seite erscheinen nach jedem Merge nach `main` automatisch (Reiter **Actions** zeigt den Lauf).
 
-Für den Livegang gibt es danach zwei Wege: direkt auf die Hauptdomain (Teil E) oder zuerst eine Vorschau-Unterdomain (Teile A bis C). Die Unterdomain ist nur nötig, wenn Sie die Seite unter einer eigenen Adresse zeigen wollen, zum Beispiel Jenny.
+Für den Livegang auf der echten Domain siehe unten (Teil E). Die technischen Hintergründe zu DNS und Hosting stehen in `docs/deploy.md`.
 
 ---
 
-Gesamtablauf:
-
-1. GitHub vorbereiten (Teil A)
-2. Vorschau-Unterdomain bei Strato anlegen (Teil B)
-3. Vorschau mit GitHub verbinden und ansehen (Teil C)
-4. Prüfen und freigeben (Teil D)
-5. Live schalten (Teil E)
-6. Nachkontrolle (Teil F)
-
-Die Teile D bis F machen Sie erst, wenn Sie alles in der Vorschau gesehen haben.
-
----
-
-## Teil A: GitHub vorbereiten
-
-**A1. Pages einschalten**
-
-1. Öffnen Sie `https://github.com/jennypelka/marketingmitjenny` und melden Sie sich an.
-2. Klicken Sie oben auf **Settings** (Zahnrad).
-3. Links in der Liste auf **Pages**.
-4. Bei **Source** (Build and deployment) wählen Sie **GitHub Actions**. Es gibt nichts zu speichern, die Auswahl gilt sofort.
-
-**A2. Vorschau-Einstellungen setzen (zwei Variablen)**
-
-1. In **Settings** links auf **Secrets and variables**, dann **Actions**.
-2. Oben auf den Reiter **Variables**.
-3. Klicken Sie **New repository variable**.
-   - Name: `SITE_URL`
-   - Value: `https://vorschau.marketingmitjenny.de`
-   - **Add variable**
-4. Noch einmal **New repository variable**.
-   - Name: `NOINDEX`
-   - Value: `true`
-   - **Add variable**
-
-Diese beiden Variablen sorgen dafür, dass die Vorschau Google nicht angezeigt wird und die Adressen in der Seite zur Vorschau passen.
-
-**A3. Den Pull Request zusammenführen (Merge)**
-
-1. Klicken Sie oben auf **Pull requests**.
-2. Öffnen Sie den Pull Request „Build marketingmitjenny.de with Astro“.
-3. Scrollen Sie nach unten. Wenn alle Prüfungen grün sind (Häkchen), klicken Sie **Merge pull request**, dann **Confirm merge**.
-4. Klicken Sie oben auf **Actions**. Dort läuft jetzt „Deploy to GitHub Pages“. Warten Sie, bis der Lauf ein grünes Häkchen hat (ca. 1 bis 3 Minuten).
-
-Falls der Lauf rot wird, klicken Sie ihn an und schicken Sie mir einen Screenshot der roten Zeile.
-
----
-
-## Teil B: Vorschau-Unterdomain bei Strato
-
-Ziel: `vorschau.marketingmitjenny.de` soll auf GitHub zeigen. Dafür legen Sie bei Strato einen DNS-Eintrag an.
-
-1. Melden Sie sich im **Strato Kundenservicebereich** an.
-2. Öffnen Sie **Domains** und wählen Sie `marketingmitjenny.de`. Je nach Oberfläche heißt der Weg **Domainverwaltung** oder **Domains verwalten**.
-3. Suchen Sie **DNS-Einstellungen** (manchmal unter „Subdomains“ oder „Erweiterte DNS-Einstellungen“ / „CNAME“).
-4. Legen Sie einen **neuen Eintrag** an:
-   - Typ: **CNAME**
-   - Name / Präfix: `vorschau`
-   - Ziel / Wert: `jennypelka.github.io` (ohne `https://`, ohne Schrägstrich)
-5. Speichern.
-
-Falls Strato nach „Subdomain“ fragt statt nach DNS: Legen Sie die Subdomain `vorschau` an und wählen Sie als Verweis **externes Ziel / CNAME** `jennypelka.github.io`.
-
-Die Änderung kann einige Minuten bis wenige Stunden dauern. Sie müssen nichts weiter tun, nur warten.
-
-**Wichtig:** Ändern Sie hier nichts an den bestehenden Einträgen von `marketingmitjenny.de` und `www`. Die laufen noch für die alte Seite.
-
----
-
-## Teil C: Vorschau verbinden und ansehen
-
-1. GitHub, **Settings**, **Pages**.
-2. Bei **Custom domain** tragen Sie `vorschau.marketingmitjenny.de` ein und klicken **Save**.
-3. GitHub prüft die Domain („DNS check“). Meldet es einen Fehler, warten Sie 10 bis 30 Minuten und klicken Sie erneut **Save**, bis „DNS check successful“ erscheint.
-4. Sobald der Haken **Enforce HTTPS** anklickbar ist, setzen Sie ihn. Das kann nach der Domainprüfung bis zu einer Stunde dauern.
-5. Gehen Sie zu **Actions**, öffnen Sie links **Deploy to GitHub Pages**, klicken Sie rechts **Run workflow**, dann **Run workflow** im Fenster. Warten Sie auf das grüne Häkchen.
-6. Öffnen Sie `https://vorschau.marketingmitjenny.de` im Browser.
-
-So prüfen Sie, dass es die Vorschau ist: In der Seitenquelle steht `noindex`, und `https://vorschau.marketingmitjenny.de/robots.txt` zeigt `Disallow: /`.
-
----
-
-## Teil D: Prüfen und freigeben
+## Prüfen und freigeben
 
 Gehen Sie die Seite am Handy und am Computer durch, in Hell und Dunkel (Mond-Symbol oben rechts).
 
 - [ ] Startseite, Leistungen, Über uns, Referenzen, Kontakt, Impressum, Datenschutz
 - [ ] Alle Texte stimmen, Telefonnummer und E-Mail klappen (Antippen)
-- [ ] Bilder und Logos sichtbar, Reels zeigen noch „TODO: Video und Poster folgen“ (siehe unten)
+- [ ] Bilder und Logos sichtbar, Reels laufen (Reel 1 und 2 sind neu, 3 und 4 noch alt)
 - [ ] Die Datenschutzseite zeigt den Platzhalter: **Vor dem Livegang muss die echte Datenschutzerklärung hinein** (Jenny: e-recht24, Grundlage `docs/datenschutz-inventar.md`)
 
 Dinge, die noch fehlen: `docs/offene-todos.md`.
 
 **Videos (Reels) nachträglich einfügen:**
 
-Die Dateien heißen genau `reel-1.mp4` bis `reel-4.mp4` und gehören in den Ordner `content/media/` im Git-Repository. Sie werden beim nächsten Build automatisch im iPhone-Rahmen eingebaut.
+Die Dateien heißen genau `reel-1.mp4` bis `reel-4.mp4` (plus `reel-N-poster.jpg`) und gehören in `content/media/`. Neue Rohvideos (Bildschirmaufnahmen mit Handy-Rahmen) werden auf den Innenbildschirm zugeschnitten, siehe `docs/uebergabe.md`, Abschnitt Reels.
 
 *Schritt 1: Videos klein machen (empfohlen, gilt für alle Wege).* Pro Video genügen 10 bis 20 MB. Kostenlos geht das mit HandBrake (handbrake.fr): Datei öffnen, Voreinstellung „Fast 1080p30“, unter Dimensions auf **1080 × 1920** (hochkant) belassen, Reiter Video: Qualität **RF 26**, Reiter Audio: Audio ist egal (die Reels laufen stumm), speichern als MP4. Ein Reel mit 30 bis 45 Sekunden hat dann meist unter 20 MB.
 
@@ -131,50 +49,36 @@ Poster-Bild und Untertitel für die Reels sind noch offen.
 
 ---
 
-## Teil E: Live schalten (erst nach Freigabe)
+## Teil E: Domain auf GitHub Pages schalten (Stand 25.10.2026)
 
-Voraussetzungen: Teil D abgehakt, echte Datenschutzerklärung eingesetzt (dabei `noindex` in `src/lib/pages.ts` für Datenschutz entfernen, das erledige ich auf Zuruf).
+Ausgangslage: Die Domain `marketingmitjenny.de` hat ihre DNS-Zone bei **Microsoft 365** (Nameserver `ns1`–`ns4.bdm.microsoftonline.com`, in Strato eingetragen). Die Mail hängt daran. **Nameserver nie ändern.** DNS-Einträge für die Website werden im Microsoft-Adminportal gesetzt, nicht bei Strato.
 
-**E1. Alte Einstellungen sichern**
+**E1. Vorher**
+1. Datenschutzerklärung ist eingesetzt (`src/pages/datenschutz.astro`, `noindex` in `src/lib/pages.ts` entfernt). Ohne sie nicht live gehen.
+2. Alle Einträge der Zone sichern (Screenshot): admin.microsoft.com, Einstellungen, Domänen, `marketingmitjenny.de`, DNS-Einträge.
+3. MX, TXT (SPF), `autodiscover`, DKIM und `_dmarc` nie ändern.
 
-1. Öffnen Sie bei Strato die DNS-Einstellungen von `marketingmitjenny.de`.
-2. Machen Sie einen **Screenshot** oder kopieren Sie alle Einträge in eine Notiz. Das ist Ihr Rückweg, falls etwas schiefgeht.
-3. **E-Mail-Einträge (MX, SPF, DKIM, DMARC, TXT) nie löschen oder ändern.** Sonst funktioniert `info@marketingmitjenny.de` nicht mehr.
+**E2. DNS (Microsoft-Adminportal)**
+1. A `@` auf `185.199.108.153` (statt `198.202.211.1`). Optional drei weitere A-Records: `185.199.109.153`, `185.199.110.153`, `185.199.111.153`. Prüfe die Adressen in der GitHub-Doku „Managing a custom domain for your GitHub Pages site“.
+2. CNAME `www` auf `jennypelka.github.io` (ohne `https://`).
+3. AAAA-Einträge für `@` und `www` löschen.
+4. Gibt es einen CAA-Eintrag, muss `letsencrypt.org` erlaubt sein, sonst löschen.
+5. Kontrolle auf https://dnschecker.org (A-Record muss die GitHub-Adresse zeigen).
 
-**E2. DNS umstellen (Strato)**
+**E3. GitHub**
+1. Settings, Secrets and variables, Actions, Variables: `SITE_URL` = `https://marketingmitjenny.de` (kein Pfad, kein Schrägstrich am Ende). `NOINDEX` löschen, sobald die Seite für Google offen sein soll.
+2. Settings, Pages, Custom domain: `marketingmitjenny.de`, Save. Auf „DNS check successful“ warten, dann **Enforce HTTPS** setzen (kann nach dem Check noch bis zu einer Stunde gesperrt sein, nicht mehrfach speichern).
+3. Actions, Deploy to GitHub Pages, Run workflow, auf das grüne Häkchen warten.
+4. Hart neu laden. Sieht die Seite ungestylt aus, steht `SITE_URL` falsch (Pfade beginnen dann mit `/marketingmitjenny/`).
 
-Ändern Sie nur diese Einträge:
-
-1. Alle **A-Einträge** der Hauptdomain (`marketingmitjenny.de` bzw. `@`) ersetzen Sie durch diese vier (Typ **A**):
-   - `185.199.108.153`
-   - `185.199.109.153`
-   - `185.199.110.153`
-   - `185.199.111.153`
-   (Prüfen Sie diese Adressen vorher in der GitHub-Dokumentation „Managing a custom domain for your GitHub Pages site“, sie können sich ändern.)
-2. **AAAA-Einträge** der Hauptdomain: löschen oder durch die IPv6-Adressen aus der GitHub-Dokumentation ersetzen. Alte IPv6-Einträge der bisherigen Seite dürfen nicht stehenbleiben.
-3. Eintrag für `www`: Typ **CNAME**, Ziel `jennypelka.github.io`.
-
-Die alte Webflow-Seite ist dann nicht mehr erreichbar, sobald das DNS umgestellt ist. Das kann einige Minuten bis wenige Stunden dauern. Am besten machen Sie das zu einer ruhigen Zeit.
-
-**E3. GitHub auf die Hauptdomain umstellen**
-
-1. **Settings**, **Secrets and variables**, **Actions**, Reiter **Variables**.
-2. Löschen Sie die beiden Variablen `SITE_URL` und `NOINDEX` (Papierkorb-Symbol). Ohne sie baut GitHub die Live-Version.
-3. **Settings**, **Pages**: Bei **Custom domain** `marketingmitjenny.de` eintragen, **Save**. Auf „DNS check successful“ warten, dann **Enforce HTTPS** setzen.
-4. **Actions**, **Deploy to GitHub Pages**, **Run workflow**. Auf grünes Häkchen warten.
-5. Öffnen Sie `https://marketingmitjenny.de` und `https://www.marketingmitjenny.de` (leitet automatisch auf die Hauptdomain).
-
-Die Vorschau-Domain funktioniert danach nicht mehr (GitHub erlaubt nur eine Domain). Den CNAME `vorschau` bei Strato können Sie löschen.
-
-**Rückweg, falls etwas schiefgeht:** Tragen Sie bei Strato die gesicherten alten Einträge aus E1 wieder ein.
-
----
+**Rückweg:** Alte Einträge (A `198.202.211.1`, `www` auf die Webflow-Adresse) wieder eintragen. Die Webflow-Seite läuft weiter, solange sie veröffentlicht ist.
 
 ## Teil F: Nachkontrolle nach dem Livegang
 
-1. Öffnen Sie `https://marketingmitjenny.de/robots.txt` (muss `Allow: /` zeigen) und `https://marketingmitjenny.de/sitemap.xml`.
-2. **Google Search Console** (`search.google.com/search-console`): Domain hinzufügen (Verifizierung per DNS-Eintrag bei Strato), dann unter **Sitemaps** `sitemap.xml` einreichen. **Bing Webmaster Tools** ebenso.
-3. Gleiche Seiten in der Search Console auf Fehler prüfen, wenn alte URLs aus der alten Seite 404 zeigen. Auf GitHub Pages sind keine Weiterleitungen möglich, für wichtige alte Adressen sagen Sie mir Bescheid.
-4. Strukturierte Daten prüfen: `https://validator.schema.org` und `https://search.google.com/test/rich-results`, jeweils die Adresse der Startseite eintragen.
+1. `https://marketingmitjenny.de/robots.txt` muss `Allow: /` zeigen, `/sitemap.xml` muss erreichbar sein.
+2. **Google Search Console**: Domain hinzufügen (Verifizierung per TXT-Eintrag im Microsoft-Portal), `sitemap.xml` einreichen. **Bing Webmaster Tools** ebenso.
+3. Alte Webflow-URLs prüfen. Auf GitHub Pages sind keine 301 möglich, für wichtige Altadressen kleine Weiterleitungsseiten anlegen.
+4. Strukturierte Daten prüfen: `https://validator.schema.org` und `https://search.google.com/test/rich-results`.
 5. Google-Unternehmensprofil und Bing Places mit der neuen Adresse abgleichen.
-6. Einmal im Monat `docs/aeo-testprompts.md` durchgehen.
+6. Webflow: Seite abschalten oder Domains dort entfernen, wenn nicht mehr gebraucht.
+7. Einmal im Monat `docs/aeo-testprompts.md` durchgehen.
