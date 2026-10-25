@@ -32,7 +32,10 @@ Texts are not in a CMS. They live in the page files and shared modules:
 | Über uns, Referenzen, Kontakt, Impressum, Datenschutz | `src/pages/<page>.astro` |
 | Title, description, last-modified date per page | `src/lib/pages.ts` (update `lastmod` when content changes) |
 | Name, address, phone, e-mail, social links, navigation | `src/lib/site.ts` |
-| Reels | drop `reel-1.mp4` to `reel-4.mp4` into `content/media/`, they are picked up automatically |
+| Reels | `reel-1.mp4` to `reel-4.mp4` plus `-poster.jpg` in `content/media/`, picked up automatically (recipe in `docs/uebergabe.md`) |
+| Team (Jenny, Leonie) | `src/pages/ueber-uns.astro`, photos in `content/media/` |
+| Client logos, linked logos | `src/pages/index.astro` (`clients`), files in `src/assets/clients/` |
+| Testimonials, Altwirt approval flag | `src/pages/referenzen.astro` |
 | Open Graph images | `node scripts/build-og.mjs` (needs `playwright`) |
 
 The briefing proposed Markdown content collections so texts can be changed without code. That is not built yet and can be added on request. `content/*.md` stays the verbatim source of truth for texts.
@@ -42,4 +45,6 @@ The briefing proposed Markdown content collections so texts can be changed witho
 - `docs/datenschutz-inventar.md`: all third-party contacts and the network check
 - `docs/cmp-entscheidung.md`: why no consent banner (yet)
 - `docs/keywords.md`, `docs/aeo-testprompts.md`: SEO and AEO working notes
-- `docs/deploy.md`: GitHub Pages and Strato DNS
+- `docs/uebergabe.md`: handover for whoever operates the site (start here)
+- `docs/anleitung-live-gang.md`: step-by-step go-live guide (German, for Max)
+- `docs/deploy.md`: GitHub Pages, Strato registrar, DNS at Microsoft 365

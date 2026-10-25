@@ -15,11 +15,13 @@ Wichtig:
 - Code/Commits Englisch, Inhalte Deutsch mit „Sie“.
 
 Entscheidungen (Stand Phase 0):
-- Hosting: GitHub Pages (Domain bei Strato, DNS zeigt auf GitHub). Kein `_headers`/`.htaccess`: Header nur per `<meta>` möglich, 301-Weiterleitungen nicht möglich.
+- Hosting: GitHub Pages (Domain bei Strato, DNS-Zone der .de bei Microsoft 365, Nameserver nie ändern, Mail hängt daran; Details `docs/deploy.md`). Kein `_headers`/`.htaccess`: Header nur per `<meta>` möglich, 301-Weiterleitungen nicht möglich.
 - URLs ohne Trailing Slash (`build.format: 'file'`, `trailingSlash: 'never'`).
 - Kein Kontaktformular: nur `mailto:`-Link. Keine Statistik. KI-Crawler erlaubt.
 - Keine CMP nötig, solange keine Drittdienste eingebunden sind.
 - /leistungen (Entscheidung Max, Variante A): fünf Leistungstexte wörtlich aus content/startseite.md; Startseite behält Sektion #leistungen.
 - Reels laufen im iPhone-Rahmen (src/assets/iphone-frame.png, Video darunter).
-- Hero-Foto vorerst content/media/ueber-uns-1.jpg.
+- Hero-Foto: content/media/jenny-hero.jpg (25.10.2026). Über uns: Jenny und Leonie (Videografin, content/media/leonie.jpg), keine eigene Team-Seite.
 - Telefax entfällt überall (Max). Alt-Texte für Fotos: Entwürfe im Code, Jenny kann ändern. ueber-uns-2.jpg und kontakt.jpg sind Ausschnitte von ueber-uns-1.jpg.
+
+Betrieb (Stand 25.10.2026): Vor jeder Arbeit `docs/uebergabe.md` lesen (Arbeitsweise, Stand, offene Punkte, Reel-Rezept, DNS-Fallen). Kundenstimme Altwirt bleibt ausgeblendet bis zur Freigabe, Altwirt-Logo nie verlinken.
