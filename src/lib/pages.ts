@@ -10,7 +10,7 @@ export interface PageMeta {
   ogImage: string;
 }
 
-// Datenschutz is noindex while only the placeholder is live; remove `noindex` once the generated text is in.
+// Datenschutz currently shows the OLD policy as a stopgap (Max, 25.10.2026); replace it with a newly generated one.
 export const pages = {
   home: {
     path: '/',
@@ -71,9 +71,8 @@ export const pages = {
     name: 'Datenschutz',
     title: 'Datenschutz | Marketing mit Jenny',
     description:
-      'Datenschutzerklärung von Marketing mit Jenny. Der Text wird neu erzeugt und folgt, sobald das Datenschutz-Inventar abgeschlossen ist.',
-    lastmod: '2026-10-22',
-    noindex: true,
+      'Datenschutzerklärung von Marketing mit Jenny: Informationen zur Verarbeitung personenbezogener Daten, zu Ihren Rechten und zur verantwortlichen Stelle.',
+    lastmod: '2026-10-25',
     ogImage: '/og/start.png',
   },
   notFound: {

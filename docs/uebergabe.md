@@ -40,7 +40,7 @@ Details in `docs/deploy.md`. Kurzfassung:
 
 ## Offene Punkte mit Priorität
 
-1. **Datenschutzerklärung ist noch ein Platzhalter** (`src/pages/datenschutz.astro`). Sie muss über e-recht24 generiert werden (Grundlage `docs/datenschutz-inventar.md`: GitHub Pages als Hoster mit IP-Übermittlung in die USA, Instagram- und LinkedIn-Links, mailto, Schriften selbst gehostet, localStorage `mmj-theme`). Danach `noindex` für `datenschutz` in `src/lib/pages.ts` entfernen und `lastmod` setzen. Die Seite ist seit dem 25.10.2026 öffentlich und indexierbar, das ist deshalb der dringendste Punkt.
+1. **Datenschutzerklärung ist übergangsweise der ALTE Text** (`src/pages/datenschutz.astro`, wörtlich von Max geliefert, e-recht24, Entscheidung Max 25.10.2026, Seite ist indexierbar). Er passt nicht zur Seite: nennt Strato als Hoster (tatsächlich GitHub Pages, USA), erwähnt Kontaktformular und Cookie-Einwilligung, nennt nicht Instagram/LinkedIn-Links und `mmj-theme` im Browserspeicher. Nur der Block „Hinweis zur verantwortlichen Stelle“ nennt den aktuellen Namen aus dem Impressum. Der Text muss durch eine neu bei e-recht24 generierte Erklärung ersetzt werden (Grundlage `docs/datenschutz-inventar.md`). Wortlaut nicht von Hand ändern, `lastmod` in `src/lib/pages.ts` setzen. Das ist der dringendste Punkt.
 2. Erledigt (Max, 25.10.2026): `SITE_URL` = `https://marketingmitjenny.de`, `NOINDEX` ist gelöscht, die Seite ist für Google offen. Nur die Datenschutzseite trägt noch `noindex` (Platzhalter).
 3. Reels 3 und 4 ersetzen, sobald Max neue Videos schickt.
 4. Leonies Nachname fehlt (dann Person-Markup in `src/lib/schema.ts` möglich). Foto- und Textfreigabe liegt laut Max vor.

@@ -15,7 +15,7 @@
 
 ## Recht und Datenschutz (Jenny, Max, Fachstelle)
 
-- [ ] **Dringend, falls die Seite öffentlich läuft:** Datenschutzerklärung neu generieren (e-recht24, Grundlage `docs/datenschutz-inventar.md`), in `src/pages/datenschutz.astro` einsetzen, `noindex` in `src/lib/pages.ts` entfernen.
+- [ ] **Dringend:** Übergangsweise steht der ALTE Datenschutztext auf der Seite (Max, 25.10.2026; nennt Strato als Hoster, Kontaktformular, Cookie-Einwilligung). Neu generieren (e-recht24, Grundlage `docs/datenschutz-inventar.md`) und in `src/pages/datenschutz.astro` ersetzen.
 - [ ] Impressum: DSA-Verordnungsnummer im Generator korrigieren lassen (Text sagt 2022/265, richtig 2022/2065). Telefaxzeile wurde auf Anweisung von Max entfernt, im Generator ebenfalls entfernen.
 - [ ] GitHub-DPA abschließen und USA-Übermittlung bewerten, oder EU-Hoster wählen.
 - [ ] Mail-Anbieter, AVV und Speicherdauer von Anfragen nennen.
