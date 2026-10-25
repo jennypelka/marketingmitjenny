@@ -40,7 +40,7 @@
 
 ## Feedback vom 25.10.2026 (Jenny)
 
-- [ ] Reels: Reel 1 ist durch das neue Frühstücksbuffet-Reel ersetzt (25.10.2026). Reels 2-4 warten noch auf die neuen Videos, bitte als Datei hochladen.
+- [ ] Reels: Reel 1 und 2 sind durch die neuen Reels ersetzt (25.10.2026). Reels 3-4 warten noch auf die neuen Videos, bitte als Datei hochladen.
 - [ ] Kundenstimme Altwirt Reichersbeuern ist für die Vorschau sichtbar (`altwirtApproved = true` in `src/pages/referenzen.astro`). Vor dem Live-Gang Freigabe des Kunden bestätigen, sonst auf `false` setzen.
 - [x] Bilder und Logos (Leonie, Jenny, Kolberbräu, Altwirt) freigegeben (Max, 25.10.2026).
 - [ ] Altwirt-Logo nicht verlinkt (Seite derzeit gehackt). Später prüfen, ob eine Verlinkung möglich ist.
