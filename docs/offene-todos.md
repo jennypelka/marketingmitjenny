@@ -24,7 +24,7 @@
 ## Betrieb (Max)
 
 - [x] Pages-Quelle „GitHub Actions“, Deploy aus `main` läuft. Seite läuft nach Angabe von Max auf der eigenen Domain (25.10.2026).
-- [ ] Prüfen: `SITE_URL` passt zur Live-Domain und `NOINDEX` ist gelöscht (sonst bleibt die Seite für Google gesperrt).
+- [x] `SITE_URL` = `https://marketingmitjenny.de`, `NOINDEX` gelöscht, Seite für Google offen (Max, 25.10.2026).
 - [ ] DNS der `.de` liegt bei Microsoft 365, Nameserver nie ändern (`docs/deploy.md`). Webflow-Seite abschalten, wenn nicht mehr gebraucht.
 - [ ] Liste weiterer indexierter alter URLs aus der Search Console. Auf GitHub Pages sind keine 301-Weiterleitungen möglich, für wichtige alte URLs bräuchte es kleine Weiterleitungsseiten.
 - [ ] Search Console und Bing Webmaster Tools einrichten, Google-Unternehmensprofil und Bing Places pflegen.

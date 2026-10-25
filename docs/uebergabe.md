@@ -40,8 +40,8 @@ Details in `docs/deploy.md`. Kurzfassung:
 
 ## Offene Punkte mit Priorität
 
-1. **Datenschutzerklärung ist noch ein Platzhalter** (`src/pages/datenschutz.astro`). Sie muss über e-recht24 generiert werden (Grundlage `docs/datenschutz-inventar.md`: GitHub Pages als Hoster mit IP-Übermittlung in die USA, Instagram- und LinkedIn-Links, mailto, Schriften selbst gehostet, localStorage `mmj-theme`). Danach `noindex` für `datenschutz` in `src/lib/pages.ts` entfernen und `lastmod` setzen. Läuft die Seite öffentlich, ist das der dringendste Punkt.
-2. Prüfen, dass `NOINDEX` auf der Live-Domain **nicht** mehr gesetzt ist und `SITE_URL` zur Live-Domain passt, sonst bleibt die Seite für Google gesperrt oder kaputt.
+1. **Datenschutzerklärung ist noch ein Platzhalter** (`src/pages/datenschutz.astro`). Sie muss über e-recht24 generiert werden (Grundlage `docs/datenschutz-inventar.md`: GitHub Pages als Hoster mit IP-Übermittlung in die USA, Instagram- und LinkedIn-Links, mailto, Schriften selbst gehostet, localStorage `mmj-theme`). Danach `noindex` für `datenschutz` in `src/lib/pages.ts` entfernen und `lastmod` setzen. Die Seite ist seit dem 25.10.2026 öffentlich und indexierbar, das ist deshalb der dringendste Punkt.
+2. Erledigt (Max, 25.10.2026): `SITE_URL` = `https://marketingmitjenny.de`, `NOINDEX` ist gelöscht, die Seite ist für Google offen. Nur die Datenschutzseite trägt noch `noindex` (Platzhalter).
 3. Reels 3 und 4 ersetzen, sobald Max neue Videos schickt.
 4. Leonies Nachname fehlt (dann Person-Markup in `src/lib/schema.ts` möglich). Foto- und Textfreigabe liegt laut Max vor.
 5. Altwirt-Kundenstimme erst nach Kundenfreigabe einblenden.
