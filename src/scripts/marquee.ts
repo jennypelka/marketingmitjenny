@@ -31,25 +31,42 @@ document.querySelectorAll<HTMLElement>('.mj-marquee--manual').forEach((el) => {
   el.addEventListener('focusout', () => (focus = false));
 
   // Mouse drag (touch and trackpad already scroll natively)
+  // Pointer capture only starts after a real drag (> 5 px), otherwise a plain click on a linked logo would be retargeted to the strip
   let dragging = false;
+  let moved = false;
+  let dragPointer = 0;
   let dragStartX = 0;
   let dragStartLeft = 0;
   el.addEventListener('pointerdown', (e) => {
     if (e.pointerType !== 'mouse' || e.button !== 0) return;
     dragging = true;
+    moved = false;
+    dragPointer = e.pointerId;
     dragStartX = e.clientX;
     dragStartLeft = el.scrollLeft;
-    el.classList.add('is-dragging');
-    el.setPointerCapture(e.pointerId);
   });
   el.addEventListener('pointermove', (e) => {
-    if (dragging) el.scrollLeft = dragStartLeft - (e.clientX - dragStartX);
+    if (!dragging) return;
+    const dx = e.clientX - dragStartX;
+    if (!moved && Math.abs(dx) > 5) {
+      moved = true;
+      el.classList.add('is-dragging');
+      el.setPointerCapture(dragPointer);
+    }
+    if (moved) el.scrollLeft = dragStartLeft - dx;
   });
   const stopDrag = () => {
     dragging = false;
     el.classList.remove('is-dragging');
     touch();
   };
+  // A drag must not open the link under the cursor
+  el.addEventListener('click', (e) => {
+    if (moved) {
+      e.preventDefault();
+      moved = false;
+    }
+  }, true);
   el.addEventListener('pointerup', stopDrag);
   el.addEventListener('pointercancel', stopDrag);
 
