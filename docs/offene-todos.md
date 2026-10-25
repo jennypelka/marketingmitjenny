@@ -41,10 +41,10 @@
 ## Feedback vom 25.10.2026 (Jenny)
 
 - [ ] Reels: „alle ersetzen mit den neuen“. Die neuen Videos wurden nicht mitgeschickt (in den Uploads liegen nur die vier bekannten). Bitte als `reel-1.mp4` … hochladen.
-- [ ] Kundenstimme Altwirt Reichersbeuern ist eingebaut, aber ausgeblendet (`altwirtApproved = false` in `src/pages/referenzen.astro`), bis der Kunde sie freigibt.
-- [ ] Altwirt-Logo nicht verlinkt (Seite derzeit gehackt). Wieder prüfen, ob eine Verlinkung möglich ist.
+- [ ] Kundenstimme Altwirt Reichersbeuern ist für die Vorschau sichtbar (`altwirtApproved = true` in `src/pages/referenzen.astro`). Vor dem Live-Gang Freigabe des Kunden bestätigen, sonst auf `false` setzen.
+- [x] Bilder und Logos (Leonie, Jenny, Kolberbräu, Altwirt) freigegeben (Max, 25.10.2026).
+- [ ] Altwirt-Logo nicht verlinkt (Seite derzeit gehackt). Später prüfen, ob eine Verlinkung möglich ist.
 - [ ] Kolberbräu verlinkt auf https://www.kolberbraeu.de/ (aus Websuche übernommen), bitte bestätigen.
-- [ ] Nutzungsfreigabe beider neuer Logos bestätigen.
-- [ ] Leonie: Nachname und Freigabe für Foto/Text auf der Website; optional eigene Team-Seite statt Abschnitt auf /ueber-uns.
-- [ ] Abschnitt „Arbeitsweise“ auf /ueber-uns entfällt (ersetzt durch „Über Leonie“). Text bei Bedarf an anderer Stelle weiterverwenden.
-- [ ] Impressum: Header-Block (marketingmitjenny - Social Media Agentur, Jennifer Laetitia Pelka) übernommen. DSA-Nummer 2022/265 weiterhin im Generator prüfen.
+- [ ] Leonie: Nachname fehlt (dann auch Person-Markup möglich).
+- [x] Abschnitt „Arbeitsweise“ ersetzt durch „Über Leonie“.
+- [ ] Impressum: DSA-Nummer 2022/265 weiterhin im Generator prüfen.
