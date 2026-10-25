@@ -54,7 +54,7 @@ Poster-Bild und Untertitel für die Reels sind noch offen.
 Ausgangslage: Die Domain `marketingmitjenny.de` hat ihre DNS-Zone bei **Microsoft 365** (Nameserver `ns1`–`ns4.bdm.microsoftonline.com`, in Strato eingetragen). Die Mail hängt daran. **Nameserver nie ändern.** DNS-Einträge für die Website werden im Microsoft-Adminportal gesetzt, nicht bei Strato.
 
 **E1. Vorher**
-1. Datenschutzerklärung ist eingesetzt (`src/pages/datenschutz.astro`, `noindex` in `src/lib/pages.ts` entfernt). Ohne sie nicht live gehen.
+1. Datenschutzerklärung ist eingesetzt (`src/pages/datenschutz.astro`). Aktuell steht dort übergangsweise der alte Text, siehe `docs/uebergabe.md`.
 2. Alle Einträge der Zone sichern (Screenshot): admin.microsoft.com, Einstellungen, Domänen, `marketingmitjenny.de`, DNS-Einträge.
 3. MX, TXT (SPF), `autodiscover`, DKIM und `_dmarc` nie ändern.
 

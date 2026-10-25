@@ -10,7 +10,7 @@ Wichtig:
 - Referenz-HTML und Previews laden Google Fonts, Webflow-CDN und Cloudinary: NICHT übernehmen.
   Schriften selbst hosten, Medien nur aus content/media/. Keine Drittdomains.
 - Inhalte nicht umformulieren. Fehlendes als TODO: markieren und am Ende auflisten.
-- Rechtstexte nie selbst schreiben. Datenschutz bleibt Platzhalter bis zur Neugenerierung.
+- Rechtstexte nie selbst schreiben. Datenschutz zeigt seit 25.10.2026 übergangsweise den ALTEN e-recht24-Text (Entscheidung Max, wörtlich, nennt Strato als Hoster, passt nicht zur Seite). Ersatz: neu generierter Text, bis dahin den Wortlaut nicht ändern.
 - Nach jeder Phase stoppen und Checkliste aus BRIEFING.md §9 melden.
 - Code/Commits Englisch, Inhalte Deutsch mit „Sie“.
 

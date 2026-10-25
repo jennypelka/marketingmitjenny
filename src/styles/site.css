@@ -197,6 +197,9 @@ body { margin: 0; background: var(--bg); color: var(--fg); }
 .legal { max-width: var(--content-narrow); display: flex; flex-direction: column; gap: var(--space-4); font: 400 1.0625rem/1.65 var(--font-sans); color: var(--fg-soft); }
 .legal h2 { margin: var(--space-5) 0 0; font: 700 1.25rem/1.3 var(--font-display); color: var(--fg); }
 .legal p { margin: 0; }
+.legal h3 { margin: var(--space-3) 0 0; font: 600 1.0625rem/1.4 var(--font-display); color: var(--fg); }
+.legal h4 { margin: var(--space-2) 0 0; font: 600 1rem/1.4 var(--font-sans); color: var(--fg); }
+.legal ul { margin: 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: var(--space-2); }
 .legal a { color: var(--brand-text); text-underline-offset: 4px; }
 .legal, .contact-card { overflow-wrap: anywhere; hyphens: auto; }
 .contact-card dd { min-width: 0; }
